@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  senkalib:
+    container_name: senkalib
+    build: ./
+    volumes:
+      - ./src:/app/src
+      - ./test:/app/test
+    command: /bin/bash
+    tty: true
