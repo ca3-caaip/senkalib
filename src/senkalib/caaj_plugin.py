@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from caaj_journal import CaajJournal
+from senkalib.caaj_journal import CaajJournal
 
 class CaajPlugin(metaclass=ABCMeta):
   chain = None
