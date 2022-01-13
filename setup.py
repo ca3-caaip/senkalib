@@ -10,11 +10,9 @@ setup(
     license='mit',
     description='tools for senka',
 
-    author='bitblt',
+    author='ca3-caaip',
     author_email='ywakimoto1s@gmail.com',
     url='https://github.com/ca3-caaip/senkalib',
 
-    packages=find_packages('src'),
-    package_dir={'': 'src'},    
-    py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')]    
+    packages=find_packages('src')
 )

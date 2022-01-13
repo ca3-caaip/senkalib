@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import *
-from src.transaction.evm_transaction import EvmTransaction
+from src.senkalib.transaction.evm_transaction import EvmTransaction
 import json
 from pathlib import Path
 import os

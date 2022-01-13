@@ -5,7 +5,6 @@ services:
     container_name: senkalib
     build: ./
     volumes:
-      - ./src:/app/src
-      - ./test:/app/test
+      - ./:/app/
     command: /bin/bash
     tty: true
