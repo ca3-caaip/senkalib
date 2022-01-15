@@ -17,3 +17,6 @@ class BscTransaction(Transaction):
 
   def get_transaction_fee(self) -> Decimal:
     return self.gasused * self.gasprice
+
+  def get_transaction_receipt(self) -> dict:
+    return self.transaction_receipt
