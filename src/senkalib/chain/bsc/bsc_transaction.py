@@ -1,8 +1,10 @@
-from src.senkalib.transaction.transaction import Transaction 
+from src.senkalib.chain.transaction import Transaction 
 from decimal import Decimal
 import datetime
 
-class EvmTransaction(Transaction):
+class BscTransaction(Transaction):
+  chain = 'bsc'
+
   def __init__(self, transaction_id:str, transaction_receipt:dict, timestamp:str, gasused:str, gasprice:str):
     super().__init__(transaction_id)
     self.transaction_receipt = transaction_receipt
