@@ -1,6 +1,6 @@
 from abc import ABCMeta, abstractmethod
-from src.senkalib.caaj_journal import CaajJournal
-from src.senkalib.transaction.transaction import Transaction
+from senkalib.caaj_journal import CaajJournal
+from senkalib.chain.transaction import Transaction
 
 class CaajPlugin(metaclass=ABCMeta):
   chain = None

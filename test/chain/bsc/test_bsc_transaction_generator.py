@@ -4,7 +4,6 @@ from src.senkalib.chain.bsc.bsc_transaction_generator import BscTransactionGener
 import json
 from pathlib import Path
 import os
-from src.senkalib.chain.transaction import Transaction
 from src.senkalib.senka_setting import SenkaSetting
 from unittest.mock import *
 from web3.eth import Eth
@@ -13,11 +12,10 @@ from web3.eth import Eth
 
 class TestBscTransactionGenerator(unittest.TestCase):
   def test_get_transactions(self):
-    settings = SenkaSetting({'bscscan_key':os.environ['BSCKEY']})
+    settings = SenkaSetting({})
     with patch.object(BscTransactionGenerator, 'get_txs', new=TestBscTransactionGenerator.mock_get_txs):
       with patch.object(Eth, 'get_transaction_receipt', new=TestBscTransactionGenerator.mock_get_transaction_receipt):
         transactions = BscTransactionGenerator.get_transactions(settings, '0x0Dee38f987ca1EFE37da2cC39c6b2ace0A61A95A', None, {'startblock':13526335 ,'endblock':	14353208})
-    #transactions = BscTransactionGenerator.get_transactions(settings, '0xee226379db83cffc681495730c11fdde79ba4c0c', None, None)
     timestamp = transactions[0].get_timestamp()
     fee = transactions[0].get_transaction_fee()
     transaction_receipt = transactions[0].get_transaction_receipt()
@@ -25,7 +23,6 @@ class TestBscTransactionGenerator(unittest.TestCase):
     self.assertEqual(timestamp, '2021-12-28 01:30:55')
     self.assertEqual(fee, 222150000000000)
     self.assertEqual(transaction_receipt['from'], '0xDa28ecfc40181a6DAD8b52723035DFba3386d26E')
-    print(len(transactions))
 
   @classmethod
   async def mock_get_txs(cls, settings:dict, address:str, arg_startblock:int = None, arg_endblock:int = None, arg_page:int = None):

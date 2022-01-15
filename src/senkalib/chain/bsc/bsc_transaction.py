@@ -1,4 +1,4 @@
-from src.senkalib.chain.transaction import Transaction 
+from senkalib.chain.transaction import Transaction 
 from decimal import Decimal
 import datetime
 
