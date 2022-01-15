@@ -1,4 +1,4 @@
-from src.senkalib.chain.transaction import Transaction 
+from senkalib.chain.transaction import Transaction 
 from decimal import Decimal
 import datetime
 
@@ -17,3 +17,6 @@ class BscTransaction(Transaction):
 
   def get_transaction_fee(self) -> Decimal:
     return self.gasused * self.gasprice
+
+  def get_transaction_receipt(self) -> dict:
+    return self.transaction_receipt
