@@ -1,0 +1,12 @@
+{
+    "name": "senkalib",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "senkalib",
+    "workspaceFolder": "/app",
+    "shutdownAction": "stopCompose",
+	"extensions": [
+		"ms-python.python"
+	]
+}
