@@ -15,7 +15,8 @@ class OsmosisTransaction(Transaction):
     return str(dt.strptime(self.transaction['header']['timestamp'], '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=None))
 
   def get_transaction_fee(self) -> Decimal:
-    return Decimal(self.transaction['data']['tx']['auth_info']['fee']['amount'][0]['amount'])
+    fee_list = self.transaction['data']['tx']['auth_info']['fee']['amount']
+    return Decimal('0') if len(fee_list) == 0 else Decimal(fee_list[0]['amount'])
 
   def get_transaction(self) -> dict:
     return self.transaction
