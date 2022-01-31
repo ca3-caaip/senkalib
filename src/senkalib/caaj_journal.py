@@ -1,8 +1,10 @@
+from typing import List
+
 class CaajJournal:
-  def __init__(self, caaj: dict):
+  def __init__(self, caaj: List):
     self.caaj = caaj
 
-  def get_caaj(self) -> dict:
+  def get_caaj(self) -> List:
     return self.caaj
 
   @classmethod
