@@ -1,10 +1,11 @@
 from typing import List
 
 class CaajJournal:
-  def __init__(self, time:str = None, transaction_id:str = None, comment:str = None, 
+  def __init__(self, time:str = None, platform:str = None,transaction_id:str = None, comment:str = None, 
     debit_from:str = None, debit_to:str = None, credit_from:str = None, credit_to:str = None, 
     debit_title:str = None, debit_amount:dict = None, credit_title:str = None, credit_amount:dict = None):
     self.time = time
+    self.platform = platform
     self.transaction_id = transaction_id
     self.comment = comment  
     self.debit_from = debit_from
@@ -16,8 +17,9 @@ class CaajJournal:
     self.credit_title = credit_title
     self.credit_amount = credit_amount
 
-  def set_caaj_meta(self, time:str, transaction_id:str, comment:str) -> dict:
+  def set_caaj_meta(self, time:str, platform:str, transaction_id:str, comment:str) -> dict:
     self.time = time
+    self.platform = platform
     self.transaction_id = transaction_id
     self.comment = comment
 
