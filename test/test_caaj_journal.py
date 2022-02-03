@@ -4,8 +4,9 @@ from senkalib.caaj_journal import CaajJournal
 class TestCaajJounal(unittest.TestCase):
   def test_get_caaj_meta(self):
     cj = CaajJournal()
-    caaj_meta = cj.set_caaj_meta('2022-01-12 11:11:11', '0x36512c7e09e3570dfc53176252678ee9617660550d36f4da797afba6fc55bba6', 'hello world')
+    caaj_meta = cj.set_caaj_meta('2022-01-12 11:11:11', 'platform', '0x36512c7e09e3570dfc53176252678ee9617660550d36f4da797afba6fc55bba6', 'hello world')
     assert cj.time == '2022-01-12 11:11:11'
+    assert cj.platform == 'platform'
     assert cj.transaction_id == '0x36512c7e09e3570dfc53176252678ee9617660550d36f4da797afba6fc55bba6'
     assert cj.comment == 'hello world'
 
