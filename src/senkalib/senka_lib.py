@@ -3,8 +3,13 @@ import importlib
 import os
 import re
 from senkalib.chain.transaction_generator import TransactionGenerator
+from pandas import DataFrame, pandas
+import requests
+import io
 
 class SenkaLib:
+  TOKEN_OERIGINAK_IDS_URL = 'https://raw.githubusercontent.com/ca3-caaip/token_original_id/master/token_original_id.csv'
+
   @classmethod
   def get_available_chain(cls, blacklist = []) -> List[TransactionGenerator]:
     available_chains = []
@@ -29,3 +34,9 @@ class SenkaLib:
 
     return available_chains
 
+  @classmethod
+  def get_token_original_ids(cls) -> DataFrame:
+    url = cls.TOKEN_OERIGINAK_IDS_URL
+    res = requests.get(url).content
+    df = pandas.read_csv(io.StringIO(res.decode('utf-8')))
+    return df

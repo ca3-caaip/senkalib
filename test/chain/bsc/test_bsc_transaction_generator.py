@@ -26,12 +26,12 @@ class TestBscTransactionGenerator(unittest.TestCase):
 
   @classmethod
   async def mock_get_txs(cls, settings:dict, address:str, arg_startblock:int = None, arg_endblock:int = None, arg_page:int = None):
-    header = json.loads(Path('%s/../../testdata/bsc/header.json' % os.path.dirname(__file__)).read_text())
+    header = json.loads(Path('%s/../../testdata/chain/bsc/header.json' % os.path.dirname(__file__)).read_text())
     return [header]
 
   @classmethod
   def mock_get_transaction_receipt(cls, transaction_hash):
-    receipt = json.loads(Path('%s/../../testdata/bsc/transaction_receipt/approve.json' % os.path.dirname(__file__)).read_text())
+    receipt = json.loads(Path('%s/../../testdata/chain/bsc/transaction_receipt/approve.json' % os.path.dirname(__file__)).read_text())
     return receipt
 
 if __name__ == '__main__':
