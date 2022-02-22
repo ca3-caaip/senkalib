@@ -25,7 +25,7 @@ class TestOsmosisTransactionGenerator(unittest.TestCase):
 
   @classmethod
   def mock_get_txs(cls, settings:dict, address:str, arg_startblock:int = None, arg_endblock:int = None, arg_page:int = None):
-    transactions = json.loads(Path('%s/../../testdata/osmosis/test_transactions.json' % os.path.dirname(__file__)).read_text())
+    transactions = json.loads(Path('%s/../../testdata/chain/osmosis/test_transactions.json' % os.path.dirname(__file__)).read_text())
     return transactions
 
 if __name__ == '__main__':

@@ -11,5 +11,5 @@ class CaajPlugin(metaclass=ABCMeta):
     pass
 
   @abstractmethod
-  def get_caajs(cls, address:str, transaction:Transaction) -> List[CaajJournal]:
+  def get_caajs(cls, address:str, transaction:Transaction, token_original_ids:List) -> List[CaajJournal]:
     pass
