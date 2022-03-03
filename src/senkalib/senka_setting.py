@@ -1,7 +1,3 @@
-from turtle import back
-from typing import List
-import os
-
 class SenkaSetting:
   def __init__(self, settings:dict):
     self.settings = settings
