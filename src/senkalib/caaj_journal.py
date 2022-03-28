@@ -1,10 +1,20 @@
 from typing import List
-from senkalib.caaj_journal_amount import CaajJournalAmount
-from senkalib.caaj_journal_meta import CaajJournalMeta
-from senkalib.caaj_journal_side import CaajJournalSide
+from decimal import Decimal
+import dataclasses
 
+@dataclasses.dataclass
 class CaajJournal:
-  def __init__(self, meta:CaajJournalMeta = None, debit:CaajJournalSide = None, credit:CaajJournalSide = None):
-    self.meta = meta
-    self.debit = debit
-    self.credit = credit
+  executed_at: str
+  chain: str
+  platform: str
+  application: str
+  transaction_id: str
+  trade_uuid: str
+  type: str
+  amount: Decimal
+  token_symbol: str
+  token_original_id: str
+  token_symbol_uuid: str
+  caaj_from: str
+  caaj_to: str
+  comment: str
