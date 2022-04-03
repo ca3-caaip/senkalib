@@ -8,7 +8,7 @@ def _requires_from_file(filename):
 
 setup(
     name='senkalib',
-    version='0.2.0',
+    version='0.2.1',
     license='mit',
     description='tools for senka',
 
