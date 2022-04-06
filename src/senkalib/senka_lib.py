@@ -35,11 +35,3 @@ class SenkaLib:
 
 
     return available_chains
-
-  @classmethod
-  def get_token_original_ids(cls) -> dict:
-    url = cls.TOKEN_OERIGINAK_IDS_URL
-    res = requests.get(url).content.decode()
-    csv_reader = csv.DictReader(res.strip().splitlines())
-    read_data = [row for row in csv_reader]
-    return read_data
