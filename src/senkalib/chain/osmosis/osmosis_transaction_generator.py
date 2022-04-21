@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 from dateutil import parser
+from math import inf
 from senkalib.chain.transaction_generator import TransactionGenerator
 from senkalib.senka_setting import SenkaSetting
 from senkalib.chain.osmosis.osmosis_transaction import OsmosisTransaction
-from math import inf
 import requests
 
 class OsmosisTransactionGenerator(TransactionGenerator):
