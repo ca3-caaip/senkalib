@@ -48,7 +48,7 @@ class IdRecord:
   timestamp: int
   id: int
 
-id_records: list[IdRecord] = [
+id_records: List[IdRecord] = [
   IdRecord(1641027605, 11843943),  # 2022-01-01T09:00:05Z
   IdRecord(1640995203, 11802509),  # 2022-01-01T00:00:03Z
   IdRecord(1624052574, 2),         # 2021-06-18T21:42:54Z
