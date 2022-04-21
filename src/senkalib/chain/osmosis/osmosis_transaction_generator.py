@@ -4,13 +4,14 @@ from math import inf
 from senkalib.chain.transaction_generator import TransactionGenerator
 from senkalib.senka_setting import SenkaSetting
 from senkalib.chain.osmosis.osmosis_transaction import OsmosisTransaction
+from typing import List
 import requests
 
 class OsmosisTransactionGenerator(TransactionGenerator):
   chain = 'osmosis'
 
   @classmethod
-  def get_transactions(cls, settings:SenkaSetting, address:str, timerange:dict = None, blockrange:dict = None) -> list[OsmosisTransaction]:
+  def get_transactions(cls, settings:SenkaSetting, address:str, timerange:dict = None, blockrange:dict = None) -> List[OsmosisTransaction]:
     startblock = int(blockrange['startblock']) if blockrange is not None and 'startblock' in blockrange and type(blockrange['startblock']) is int else 0
     endblock = int(blockrange['endblock']) if blockrange is not None and 'endblock' in blockrange and type(blockrange['endblock']) is int else inf
     starttime = int(timerange['starttime']) if timerange is not None and 'starttime' in timerange and type(timerange['starttime']) is int else 0
@@ -38,7 +39,7 @@ class OsmosisTransactionGenerator(TransactionGenerator):
         return total_result
 
   @classmethod
-  def get_txs(cls, address: str, id_from: int) -> list[dict]:
+  def get_txs(cls, address: str, id_from: int) -> List[dict]:
     return requests.get('https://api-osmosis.cosmostation.io/v1/account/new_txs/%s' % address, params={'from': id_from, 'limit': 50}).json()
 
 
