@@ -108,4 +108,5 @@ venv.bak/
 
 pypirc
 
+# Intelij IDE settings
 /.idea/
