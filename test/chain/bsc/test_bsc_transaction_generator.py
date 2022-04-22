@@ -15,7 +15,7 @@ class TestBscTransactionGenerator(unittest.TestCase):
     settings = SenkaSetting({})
     with patch.object(BscTransactionGenerator, 'get_txs', new=TestBscTransactionGenerator.mock_get_txs):
       with patch.object(Eth, 'get_transaction_receipt', new=TestBscTransactionGenerator.mock_get_transaction_receipt):
-        transactions = BscTransactionGenerator.get_transactions(settings, '0x0Dee38f987ca1EFE37da2cC39c6b2ace0A61A95A', None, {'startblock':13526335 ,'endblock':	14353208})
+        transactions = BscTransactionGenerator.get_transactions(settings, '0x0Dee38f987ca1EFE37da2cC39c6b2ace0A61A95A', {'startblock':13526335 ,'endblock':	14353208})
     timestamp = transactions[0].get_timestamp()
     fee = transactions[0].get_transaction_fee()
     transaction_receipt = transactions[0].get_transaction_receipt()

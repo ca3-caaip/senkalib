@@ -13,14 +13,14 @@ class TestKavaTransactionGenerator(unittest.TestCase):
     settings = SenkaSetting({})
 
     with patch.object(KavaTransactionGenerator, 'get_txs', new=TestKavaTransactionGenerator.mock_get_txs):
-      transactions = KavaTransactionGenerator.get_transactions(settings, 'kava1af7lm2qv9zp526gjd3cdxrpr9zeangjlyhjqjx', None, {})
+      transactions = KavaTransactionGenerator.get_transactions(settings, 'kava1af7lm2qv9zp526gjd3cdxrpr9zeangjlyhjqjx', {})
       timestamp = transactions[0].get_timestamp()
       fee = transactions[0].get_transaction_fee()
       self.assertEqual(len(transactions), 31)
       self.assertEqual(timestamp, '2022-04-01 09:20:35')
       self.assertEqual(fee, Decimal(1000))
 
-      transactions = KavaTransactionGenerator.get_transactions(settings, 'kava1af7lm2qv9zp526gjd3cdxrpr9zeangjlyhjqjx', None, {'endblock': 4271593})
+      transactions = KavaTransactionGenerator.get_transactions(settings, 'kava1af7lm2qv9zp526gjd3cdxrpr9zeangjlyhjqjx', {'endblock': 4271593})
       self.assertEqual(len(transactions), 14)
 
   @classmethod

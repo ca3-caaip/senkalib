@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from dateutil import parser
 from operator import attrgetter
 from math import inf
-from senkalib.chain.transaction_generator import TransactionGenerator
+from senkalib.chain.transaction_generator import TransactionGenerator, GetOptions
 from senkalib.senka_setting import SenkaSetting
 from senkalib.chain.osmosis.osmosis_transaction import OsmosisTransaction
 from typing import List
@@ -12,11 +12,12 @@ class OsmosisTransactionGenerator(TransactionGenerator):
   chain = 'osmosis'
 
   @classmethod
-  def get_transactions(cls, settings:SenkaSetting, address:str, timerange:dict = None, blockrange:dict = None) -> List[OsmosisTransaction]:
-    startblock = int(blockrange['startblock']) if blockrange is not None and 'startblock' in blockrange and type(blockrange['startblock']) is int else 0
-    endblock = int(blockrange['endblock']) if blockrange is not None and 'endblock' in blockrange and type(blockrange['endblock']) is int else inf
-    starttime = int(timerange['starttime']) if timerange is not None and 'starttime' in timerange and type(timerange['starttime']) is int else 0
-    endtime = int(timerange['endtime']) if timerange is not None and 'endtime' in timerange and type(timerange['endtime']) is int else inf
+  def get_transactions(cls, settings:SenkaSetting, address:str, options:GetOptions = None) -> List[OsmosisTransaction]:
+    options = options if options is not None else {}
+    startblock = options.get('startblock', 0)
+    endblock = options.get('endblock', inf)
+    starttime = options.get('starttime', 0)
+    endtime = options.get('endtime', inf)
 
     total_result = []
     id_cursor = get_nearest_id(endtime)

@@ -15,21 +15,21 @@ class TestOsmosisTransactionGenerator(unittest.TestCase):
     settings = SenkaSetting({})
     # check results should be expected data
     get_txs.return_value = dummy_txs
-    txs = OsmosisTransactionGenerator.get_transactions(settings, 'address', None, {})
+    txs = OsmosisTransactionGenerator.get_transactions(settings, 'address')
     tx = txs[0]
     assert len(txs) == 44
     assert tx.get_timestamp() == '2022-01-15 12:18:55'
     assert tx.get_transaction_fee() == Decimal(33)
     # filter results by parameters
-    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', None, {'startblock': 2781756})) == 43
-    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', None, {'endblock': 2781756})) == 4
+    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', {'startblock': 2781756})) == 43
+    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', {'endblock': 2781756})) == 4
     assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', {'starttime': to_timestamp('2022-01-15T12:18:54Z')})) == 2
     assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', {'endtime': to_timestamp('2022-01-15T12:18:54Z')})) == 42
     # get_txs should be called multiply if result length gte 50
     get_txs.reset_mock()
     tx = dummy_txs[0]
     get_txs.side_effect = [list(repeat(tx, 50)), list(repeat(tx, 49))]
-    txs = OsmosisTransactionGenerator.get_transactions(settings, 'address', None, {})
+    txs = OsmosisTransactionGenerator.get_transactions(settings, 'address')
     assert len(txs) == 99
     assert get_txs.call_count == 2
 
