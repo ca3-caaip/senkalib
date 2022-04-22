@@ -1,6 +1,6 @@
 from senkalib.chain.bsc.bsc_transaction import BscTransaction
 from senkalib.chain.transaction import Transaction 
-from senkalib.chain.transaction_generator import TransactionGenerator
+from senkalib.chain.transaction_generator import TransactionGenerator, GetOptions
 from senkalib.senka_setting import SenkaSetting
 from web3 import Web3
 from bscscan import BscScan
@@ -11,10 +11,10 @@ class BscTransactionGenerator(TransactionGenerator):
   chain = 'bsc'
 
   @classmethod
-  def get_transactions(cls, settings:SenkaSetting, address:str, timerange:dict = None, blockrange:dict = None) -> List[Transaction]:
+  def get_transactions(cls, settings:SenkaSetting, address:str, options:GetOptions = None) -> List[Transaction]:
     settings = settings.get_settings()
-    startblock = blockrange['startblock'] if blockrange is not None and 'startblock' in blockrange and type(blockrange['startblock']) is int else 0
-    endblock = blockrange['endblock'] if blockrange is not None and 'endblock' in blockrange and type(blockrange['endblock']) is int else 'latest'
+    startblock = options['startblock'] if options is not None and 'startblock' in options and type(options['startblock']) is int else 0
+    endblock = options['endblock'] if options is not None and 'endblock' in options and type(options['endblock']) is int else 'latest'
     w3 = Web3(Web3.HTTPProvider("https://bsc-dataseed.binance.org/"))
     transactions = []
     
