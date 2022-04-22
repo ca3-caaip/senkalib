@@ -1,5 +1,5 @@
 from senkalib.chain.transaction import Transaction
-from senkalib.chain.transaction_generator import TransactionGenerator, GetOptions
+from senkalib.chain.transaction_generator import TransactionGenerator
 from senkalib.senka_setting import SenkaSetting
 from senkalib.chain.kava.kava_transaction import KavaTransaction
 from typing import List
@@ -9,11 +9,11 @@ class KavaTransactionGenerator(TransactionGenerator):
   chain = 'kava'
 
   @classmethod
-  def get_transactions(cls, settings:SenkaSetting, address:str, options:GetOptions = None) -> List[Transaction]:
+  def get_transactions(cls, settings:SenkaSetting, address:str, startblock:int = None, endblock:int = None, starttime:int = None, endtime:int = None) -> List[Transaction]:
     osmosis_transactions = []
     num_transactions = 50
-    startblock = int(options['startblock']) if options is not None and 'startblock' in options and type(options['startblock']) is int else 0
-    endblock = int(options['endblock']) if options is not None and 'endblock' in options and type(options['endblock']) is int else None
+    startblock = startblock if startblock is not None else 0
+    endblock = endblock if endblock is not None else None
 
     while num_transactions >= 50:
       transactions = KavaTransactionGenerator.get_txs(address, startblock)

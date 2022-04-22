@@ -21,10 +21,10 @@ class TestOsmosisTransactionGenerator(unittest.TestCase):
     assert tx.get_timestamp() == '2022-01-15 12:18:55'
     assert tx.get_transaction_fee() == Decimal(33)
     # filter results by parameters
-    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', {'startblock': 2781756})) == 43
-    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', {'endblock': 2781756})) == 4
-    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', {'starttime': to_timestamp('2022-01-15T12:18:54Z')})) == 2
-    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', {'endtime': to_timestamp('2022-01-15T12:18:54Z')})) == 42
+    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', startblock=2781756)) == 43
+    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', endblock=2781756)) == 4
+    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', starttime=to_timestamp('2022-01-15T12:18:54Z'))) == 2
+    assert len(OsmosisTransactionGenerator.get_transactions(settings, 'address', endtime=to_timestamp('2022-01-15T12:18:54Z'))) == 42
     # get_txs should be called multiply if result length gte 50
     get_txs.reset_mock()
     tx = dummy_txs[0]
