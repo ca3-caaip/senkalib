@@ -1,5 +1,5 @@
 import unittest
-from src.senkalib.chain.osmosis.osmosis_transaction_generator import OsmosisTransactionGenerator, get_nearest_id, to_timestamp, id_records
+from src.senkalib.chain.osmosis.osmosis_transaction_generator import OsmosisTransactionGenerator, get_nearest_id, to_timestamp, records
 import json
 from pathlib import Path
 import os
@@ -35,8 +35,9 @@ class TestOsmosisTransactionGenerator(unittest.TestCase):
 
 class TestOsmosisTransactionGeneratorInternals:
   def test_get_nearest_id(self):
-    newest = id_records[0]
-    second = id_records[1]
+    newest = records[-1]
+    second = records[-2]
+    assert get_nearest_id(to_timestamp('2030-01-01T00:00:00Z')) == 0
     assert get_nearest_id(newest.timestamp + 1) == 0
     assert get_nearest_id(newest.timestamp + 0) == 0
     assert get_nearest_id(newest.timestamp - 1) == newest.id
