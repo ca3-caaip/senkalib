@@ -1,9 +1,9 @@
 from math import inf
-from senkalib.chain.transaction_generator import TransactionGenerator
-from senkalib.senka_setting import SenkaSetting
-from senkalib.chain.osmosis.osmosis_transaction import OsmosisTransaction
-from senkalib.chain.cosmostation_api_client import CosmostationApiClient, osmosis_tx_history_records
 from typing import List
+from senkalib.senka_setting import SenkaSetting
+from senkalib.chain.cosmostation_api_client import CosmostationApiClient, osmosis_tx_history_records
+from senkalib.chain.osmosis.osmosis_transaction import OsmosisTransaction
+from senkalib.chain.transaction_generator import TransactionGenerator
 
 class OsmosisTransactionGenerator(TransactionGenerator):
   chain = 'osmosis'

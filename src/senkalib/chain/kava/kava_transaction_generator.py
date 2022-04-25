@@ -1,36 +1,18 @@
-from senkalib.chain.transaction import Transaction
-from senkalib.chain.transaction_generator import TransactionGenerator
-from senkalib.senka_setting import SenkaSetting
-from senkalib.chain.kava.kava_transaction import KavaTransaction
+from math import inf
 from typing import List
-import requests
+from senkalib.senka_setting import SenkaSetting
+from senkalib.chain.cosmostation_api_client import CosmostationApiClient, kava_tx_history_records
+from senkalib.chain.kava.kava_transaction import KavaTransaction
+from senkalib.chain.transaction_generator import TransactionGenerator
 
 class KavaTransactionGenerator(TransactionGenerator):
   chain = 'kava'
 
   @classmethod
-  def get_transactions(cls, settings:SenkaSetting, address:str, startblock:int = None, endblock:int = None, starttime:int = None, endtime:int = None) -> List[Transaction]:
-    osmosis_transactions = []
-    num_transactions = 50
+  def get_transactions(cls, settings:SenkaSetting, address:str, startblock:int = None, endblock:int = None, starttime:int = None, endtime:int = None) -> List[KavaTransaction]:
     startblock = startblock if startblock is not None else 0
-    endblock = endblock if endblock is not None else None
+    endblock = endblock if endblock is not None else inf
+    starttime = starttime if starttime is not None else 0
+    endtime = endtime if endtime is not None else inf
 
-    while num_transactions >= 50:
-      transactions = KavaTransactionGenerator.get_txs(address, startblock)
-      num_transactions = len(transactions)
-      for transaction in transactions:
-        startblock = transaction['header']['id']
-        if endblock is not None and startblock <= endblock:
-          return osmosis_transactions
-        osmosis_transactions.append(KavaTransaction(transaction))
-
-
-    return osmosis_transactions
-
-  @classmethod
-  def get_txs(cls, address, startblock):
-    response = requests.get(
-        'https://api-kava.cosmostation.io/v1/account/new_txs/%s' % address,
-        params={'from': startblock, 'limit': 50})
-    transactions = response.json()
-    return transactions
+    return list(map(KavaTransaction, CosmostationApiClient.get_transactions_by_address(chain=cls.chain, address=address, starttime=starttime, endtime=endtime, startblock=startblock, endblock=endblock, cache=kava_tx_history_records)))
