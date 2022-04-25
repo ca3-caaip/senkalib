@@ -41,7 +41,10 @@ class OsmosisTransactionGenerator(TransactionGenerator):
 
   @classmethod
   def get_txs(cls, address: str, id_from: int) -> List[dict]:
-    return requests.get('https://api-osmosis.cosmostation.io/v1/account/new_txs/%s' % address, params={'from': id_from, 'limit': 50}).json()
+    params = {'from': id_from, 'limit': 50}
+    headers = {'Origin': 'https://www.mintscan.io', 'Referer': 'https://www.mintscan.io/'}  # workaround from 2022-04-25: both origin and referer headers are required
+
+    return requests.get('https://api-osmosis.cosmostation.io/v1/account/new_txs/%s' % address, params=params, headers=headers).json()
 
 
 @dataclass
