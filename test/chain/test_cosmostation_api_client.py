@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 import os
+from unittest import TestCase
 from unittest.mock import patch
 from itertools import repeat
-from src.senkalib.chain.cosmostation_api_client import CosmostationApiClient, get_nearest_id, to_timestamp, osmosis_tx_history_records
+from src.senkalib.chain.cosmostation_api_client import CosmostationApiClient, get_nearest_id, to_timestamp, osmosis_tx_history_records, get_cosmostation_api_host
 
 class TestCosmostationApiClient:
   @patch.object(CosmostationApiClient, 'get_txs')
@@ -27,7 +28,7 @@ class TestCosmostationApiClient:
     assert get_txs.call_count == 2
 
 
-class TestCosmostationApiClientInternals:
+class TestCosmostationApiClientInternals(TestCase):
   def test_get_nearest_id(self):
     cache = osmosis_tx_history_records
     newest = cache[-1]
@@ -42,3 +43,9 @@ class TestCosmostationApiClientInternals:
 
   def test_to_timestamp(self):
     assert to_timestamp('2022-01-01T08:59:59Z') == 1641027599
+
+  def test_get_cosmostation_api_host(self):
+    assert get_cosmostation_api_host('atom') == 'api.cosmostation.io'
+    assert get_cosmostation_api_host('osmosis') == 'api-osmosis.cosmostation.io'
+    with self.assertRaisesRegex(ValueError, "invalid chain is not implemented. check following supported chains: .+"):
+      get_cosmostation_api_host('invalid chain')

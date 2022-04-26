@@ -15,4 +15,4 @@ class KavaTransactionGenerator(TransactionGenerator):
     starttime = starttime if starttime is not None else 0
     endtime = endtime if endtime is not None else inf
 
-    return list(map(KavaTransaction, CosmostationApiClient.get_transactions_by_address(chain=cls.chain, address=address, starttime=starttime, endtime=endtime, startblock=startblock, endblock=endblock, cache=kava_tx_history_records)))
+    return list(map(KavaTransaction, CosmostationApiClient.get_transactions_by_address(chain='kava', address=address, starttime=starttime, endtime=endtime, startblock=startblock, endblock=endblock, cache=kava_tx_history_records)))

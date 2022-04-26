@@ -59,10 +59,23 @@ class CosmostationApiClient():
 
   @classmethod
   def get_txs(cls, chain: str, address: str, id_from: int) -> List[dict]:
-    url = F'https://api-{chain}.cosmostation.io/v1/account/new_txs/{address}'
+    url = F'https://{get_cosmostation_api_host(chain)}.cosmostation.io/v1/account/new_txs/{address}'
     params = {'from': id_from, 'limit': 50}
     headers = {'Origin': 'https://www.mintscan.io', 'Referer': 'https://www.mintscan.io/'}  # workaround from 2022-04-25: both origin and referer headers are required
     return requests.get(url, params=params, headers=headers).json()
+
+
+COSMOSTATION_API_HOSTS = {
+  'atom': 'api.cosmostation.io',
+  'kava': 'api-kava.cosmostation.io',
+  'osmosis': 'api-osmosis.cosmostation.io',
+}
+
+def get_cosmostation_api_host(chain: str):
+  host = COSMOSTATION_API_HOSTS.get(chain, None)
+  if type(host) is not str:
+    raise ValueError(F'{chain} is not implemented. check following supported chains: {",".join(list(COSMOSTATION_API_HOSTS.keys()))}')
+  return host
 
 
 def get_nearest_id(time: int, cache: List[CosmostationTxApiHistoryRecord]):
