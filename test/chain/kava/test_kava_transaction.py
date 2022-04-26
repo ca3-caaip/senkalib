@@ -30,7 +30,17 @@ class TestKavaTransaction(unittest.TestCase):
     transaction = KavaTransaction(swap_transaction)
     fee = transaction.get_transaction_fee()
     self.assertEqual(fee, Decimal('0'))
+  
+  def test_get_fail(self):
+    swap_transaction = json.loads(Path('%s/../../testdata/chain/kava/create_atomic_swap.json' % os.path.dirname(__file__)).read_text())
+    transaction = KavaTransaction(swap_transaction)
+    failed = transaction.get_fail()
+    self.assertEqual(failed, False)
 
+    swap_transaction = json.loads(Path('%s/../../testdata/chain/kava/fail_v8.json' % os.path.dirname(__file__)).read_text())
+    transaction = KavaTransaction(swap_transaction)
+    failed = transaction.get_fail()
+    self.assertEqual(failed, True)
 
 if __name__ == '__main__':
   unittest.main()

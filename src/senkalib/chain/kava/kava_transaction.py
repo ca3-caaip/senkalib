@@ -12,6 +12,10 @@ class KavaTransaction(Transaction):
     self.transaction = transaction
     self.chain_id = transaction['header']['chain_id']
     self.chain_version = int(self.chain_id.split('-')[1])
+    self.fail = False
+    if 'code' in transaction['data'] and transaction['data']['code'] != 0:
+      self.fail = True
+
 
   def get_timestamp(self) -> str:
     return str(dt.strptime(self.transaction['header']['timestamp'], '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=None))
@@ -25,3 +29,6 @@ class KavaTransaction(Transaction):
 
   def get_transaction(self) -> dict:
     return self.transaction
+  
+  def get_fail(self):
+    return self.fail
