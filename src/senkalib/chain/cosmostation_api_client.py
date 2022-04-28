@@ -30,6 +30,11 @@ kava_tx_history_records: List[CosmostationTxApiHistoryRecord] = sorted([], key=a
 
 class CosmostationApiClient():
   @classmethod
+  def sort_transactions_order(cls, transactions: List[dict]) -> List[dict]:
+    transactions = sorted(transactions, key=lambda x: x['header']['id'])
+    return transactions
+
+  @classmethod
   def get_transactions_by_address(cls, chain: str, address: str, startblock: int = None, endblock: int = None, starttime: int = None, endtime: int = None, cache: List[CosmostationTxApiHistoryRecord] = []) -> List[dict]:
     startblock = startblock if startblock is not None else 0
     endblock = endblock if endblock is not None else inf
@@ -50,12 +55,12 @@ class CosmostationApiClient():
           total_result.append(tx)
 
         if time < starttime or block_id < startblock:
-          return total_result
+          return cls.sort_transactions_order(total_result)
         else:
           continue
 
       if len(result) < 50:
-        return total_result
+        return cls.sort_transactions_order(total_result)
 
   @classmethod
   def get_txs(cls, chain: str, address: str, id_from: int) -> List[dict]:
