@@ -1,5 +1,5 @@
 from datetime import datetime as dt
-from decimal import *
+from decimal import Decimal
 
 from senkalib.chain.transaction import Transaction
 

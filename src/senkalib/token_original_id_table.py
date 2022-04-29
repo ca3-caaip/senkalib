@@ -1,5 +1,5 @@
 import csv
-from typing import List
+from typing import List, Union
 
 import requests
 
@@ -11,7 +11,9 @@ class TokenOriginalIdTable:
         token_original_id_table = [row for row in csv_reader]
         self.token_original_id_table = token_original_id_table
 
-    def get_all_meta_data(self, chain: str, token_original_id: str) -> dict:
+    def get_all_meta_data(
+        self, chain: str, token_original_id: str
+    ) -> Union[dict, None]:
         object_token = list(
             filter(
                 lambda x: x["original_id"] == token_original_id and x["chain"] == chain,
@@ -27,28 +29,28 @@ class TokenOriginalIdTable:
             )
         return token_symbol
 
-    def get_symbol_uuid(self, chain: str, token_original_id: str) -> str:
+    def get_symbol_uuid(self, chain: str, token_original_id: str) -> Union[str, None]:
         meta_data = self.get_all_meta_data(chain, token_original_id)
         if meta_data is not None:
             return meta_data["symbol_uuid"]
         else:
             return None
 
-    def get_symbol(self, chain: str, token_original_id: str) -> str:
+    def get_symbol(self, chain: str, token_original_id: str) -> Union[str, None]:
         meta_data = self.get_all_meta_data(chain, token_original_id)
         if meta_data is not None:
             return meta_data["symbol"]
         else:
             return None
 
-    def get_description(self, chain: str, token_original_id: str) -> str:
+    def get_description(self, chain: str, token_original_id: str) -> Union[str, None]:
         meta_data = self.get_all_meta_data(chain, token_original_id)
         if meta_data is not None:
             return meta_data["description"]
         else:
             return None
 
-    def get_chain(self, chain: str, token_original_id: str) -> str:
+    def get_chain(self, chain: str, token_original_id: str) -> Union[str, None]:
         meta_data = self.get_all_meta_data(chain, token_original_id)
         if meta_data is not None:
             return meta_data["chain"]

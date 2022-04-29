@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from math import inf
 from operator import attrgetter
-from typing import List
-
+from typing import List, Union
+import sys
 import requests
 from dateutil import parser
 
@@ -45,16 +45,12 @@ class CosmostationApiClient:
         cls,
         chain: str,
         address: str,
-        startblock: int = None,
-        endblock: int = None,
-        starttime: int = None,
-        endtime: int = None,
+        startblock: int = 0,
+        endblock: int = sys.maxsize,
+        starttime: int = 0,
+        endtime: int = sys.maxsize,
         cache: List[CosmostationTxApiHistoryRecord] = [],
     ) -> List[dict]:
-        startblock = startblock if startblock is not None else 0
-        endblock = endblock if endblock is not None else inf
-        starttime = starttime if starttime is not None else 0
-        endtime = endtime if endtime is not None else inf
 
         total_result: list[dict] = []
         id_cursor = get_nearest_id(endtime, cache)

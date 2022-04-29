@@ -1,5 +1,5 @@
 from math import inf
-from typing import List
+from typing import List, Union
 
 from senkalib.chain.cosmostation_api_client import (
     CosmostationApiClient,
@@ -18,10 +18,10 @@ class KavaTransactionGenerator(TransactionGenerator):
         cls,
         settings: SenkaSetting,
         address: str,
-        startblock: int = None,
-        endblock: int = None,
-        starttime: int = None,
-        endtime: int = None,
+        startblock: Union[int, None] = None,
+        endblock: Union[int, None] = None,
+        starttime: Union[int, None] = None,
+        endtime: Union[int, None] = None,
     ) -> List[KavaTransaction]:
         startblock = startblock if startblock is not None else 0
         endblock = endblock if endblock is not None else inf
@@ -31,14 +31,8 @@ class KavaTransactionGenerator(TransactionGenerator):
         return list(
             map(
                 KavaTransaction,
-                CosmostationApiClient.get_transactions_by_address(
-                    chain="kava",
-                    address=address,
-                    starttime=starttime,
-                    endtime=endtime,
-                    startblock=startblock,
-                    endblock=endblock,
-                    cache=kava_tx_history_records,
-                ),
+                CosmostationApiClient.get_transactions_by_address(chain="kava", address=address, startblock=startblock,
+                                                                  endblock=endblock, starttime=starttime,
+                                                                  endtime=endtime, cache=kava_tx_history_records),
             )
         )

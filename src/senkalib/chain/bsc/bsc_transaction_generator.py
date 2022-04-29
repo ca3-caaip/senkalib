@@ -1,5 +1,5 @@
 import asyncio
-from typing import List
+from typing import List, Union
 
 from bscscan import BscScan
 from web3 import Web3
@@ -18,10 +18,10 @@ class BscTransactionGenerator(TransactionGenerator):
         cls,
         settings: SenkaSetting,
         address: str,
-        startblock: int = None,
-        endblock: int = None,
-        starttime: int = None,
-        endtime: int = None,
+        startblock: Union[int, None] = None,
+        endblock: Union[int, None] = None,
+        starttime: Union[int, None] = None,
+        endtime: Union[int, None] = None,
     ) -> List[Transaction]:
         settings = settings.get_settings()
         startblock = startblock if startblock is not None else 0
@@ -62,9 +62,9 @@ class BscTransactionGenerator(TransactionGenerator):
         cls,
         settings: dict,
         address: str,
-        arg_startblock: int = None,
-        arg_endblock: int = None,
-        arg_page: int = None,
+        arg_startblock: Union[int, None] = None,
+        arg_endblock: Union[int, None] = None,
+        arg_page: Union[int, None] = None,
     ):
         async with BscScan(settings["bscscan_key"]) as bscscan:
             txs = await bscscan.get_normal_txs_by_address_paginated(

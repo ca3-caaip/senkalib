@@ -2,7 +2,6 @@ import json
 import os
 import unittest
 from pathlib import Path
-from unittest.mock import *
 
 from src.senkalib.chain.bsc.bsc_transaction import BscTransaction
 

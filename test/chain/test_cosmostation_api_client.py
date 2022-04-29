@@ -30,33 +30,27 @@ class TestCosmostationApiClient:
         # filter results by parameters
         assert (
             len(
-                CosmostationApiClient.get_transactions_by_address(
-                    "osmosis", "address", startblock=2781756
-                )
+                CosmostationApiClient.get_transactions_by_address("osmosis", "address", startblock=2781756)
             )
             == 43
         )
         assert (
             len(
-                CosmostationApiClient.get_transactions_by_address(
-                    "osmosis", "address", endblock=2781756
-                )
+                CosmostationApiClient.get_transactions_by_address("osmosis", "address", endblock=2781756)
             )
             == 4
         )
         assert (
             len(
-                CosmostationApiClient.get_transactions_by_address(
-                    "osmosis", "address", starttime=to_timestamp("2022-01-15T12:18:54Z")
-                )
+                CosmostationApiClient.get_transactions_by_address("osmosis", "address",
+                                                                  starttime=to_timestamp("2022-01-15T12:18:54Z"))
             )
             == 2
         )
         assert (
             len(
-                CosmostationApiClient.get_transactions_by_address(
-                    "osmosis", "address", endtime=to_timestamp("2022-01-15T12:18:54Z")
-                )
+                CosmostationApiClient.get_transactions_by_address("osmosis", "address",
+                                                                  endtime=to_timestamp("2022-01-15T12:18:54Z"))
             )
             == 42
         )

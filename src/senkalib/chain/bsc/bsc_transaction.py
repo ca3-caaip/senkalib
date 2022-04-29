@@ -1,6 +1,8 @@
 import datetime
 from decimal import Decimal
 
+from web3.types import TxReceipt
+
 from senkalib.chain.transaction import Transaction
 
 
@@ -10,7 +12,7 @@ class BscTransaction(Transaction):
     def __init__(
         self,
         transaction_id: str,
-        transaction_receipt: dict,
+        transaction_receipt: TxReceipt,
         timestamp: str,
         gasused: str,
         gasprice: str,
@@ -31,5 +33,5 @@ class BscTransaction(Transaction):
     def get_transaction_fee(self) -> Decimal:
         return self.gasused * self.gasprice
 
-    def get_transaction_receipt(self) -> dict:
+    def get_transaction_receipt(self) -> TxReceipt:
         return self.transaction_receipt

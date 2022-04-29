@@ -1,9 +1,8 @@
 import json
 import os
 import unittest
-from decimal import *
+from decimal import Decimal
 from pathlib import Path
-from unittest.mock import *
 
 from senkalib.chain.kava.kava_transaction import KavaTransaction
 

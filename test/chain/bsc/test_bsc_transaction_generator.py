@@ -2,7 +2,8 @@ import json
 import os
 import unittest
 from pathlib import Path
-from unittest.mock import *
+from typing import Union
+from unittest.mock import patch
 
 from web3.eth import Eth
 
@@ -44,9 +45,9 @@ class TestBscTransactionGenerator(unittest.TestCase):
         cls,
         settings: dict,
         address: str,
-        arg_startblock: int = None,
-        arg_endblock: int = None,
-        arg_page: int = None,
+        arg_startblock: Union[int, None] = None,
+        arg_endblock: Union[int, None] = None,
+        arg_page: Union[int, None] = None,
     ):
         header = json.loads(
             Path(
