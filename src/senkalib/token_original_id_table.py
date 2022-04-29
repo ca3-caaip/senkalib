@@ -1,5 +1,6 @@
-from typing import List
 import csv
+from typing import List
+
 import requests
 
 

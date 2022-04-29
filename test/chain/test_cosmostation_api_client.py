@@ -1,15 +1,16 @@
 import json
-from pathlib import Path
 import os
+from itertools import repeat
+from pathlib import Path
 from unittest import TestCase
 from unittest.mock import patch
-from itertools import repeat
+
 from src.senkalib.chain.cosmostation_api_client import (
     CosmostationApiClient,
-    get_nearest_id,
-    to_timestamp,
-    osmosis_tx_history_records,
     get_cosmostation_api_host,
+    get_nearest_id,
+    osmosis_tx_history_records,
+    to_timestamp,
 )
 
 

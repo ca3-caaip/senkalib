@@ -1,7 +1,7 @@
-from setuptools import setup, find_packages
 from glob import glob
-from os.path import splitext
-from os.path import basename
+from os.path import basename, splitext
+
+from setuptools import find_packages, setup
 
 
 def _requires_from_file(filename):

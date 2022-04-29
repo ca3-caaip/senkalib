@@ -1,9 +1,10 @@
 import csv
 import os
-from pathlib import Path
 import unittest
 from decimal import Decimal
+from pathlib import Path
 from unittest.mock import patch
+
 import requests
 
 from senkalib.token_original_id_table import TokenOriginalIdTable

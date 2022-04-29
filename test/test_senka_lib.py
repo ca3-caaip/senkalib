@@ -1,14 +1,15 @@
+import os
 import re
 import unittest
+from decimal import Decimal
 from unittest.mock import *
+
+from senkalib.caaj_journal import CaajJournal
 from senkalib.chain.bsc.bsc_transaction_generator import BscTransactionGenerator
 from senkalib.chain.osmosis.osmosis_transaction_generator import (
     OsmosisTransactionGenerator,
 )
 from senkalib.senka_lib import SenkaLib
-from senkalib.caaj_journal import CaajJournal
-import os
-from decimal import Decimal
 
 
 class TestSenkaLib(unittest.TestCase):

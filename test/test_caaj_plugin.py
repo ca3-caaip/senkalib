@@ -1,10 +1,11 @@
 import unittest
+from decimal import Decimal
+from typing import List
 from unittest.mock import *
+
+from senkalib.caaj_journal import CaajJournal
 from senkalib.caaj_plugin import CaajPlugin
 from senkalib.chain.transaction import Transaction
-from senkalib.caaj_journal import CaajJournal
-from typing import List
-from decimal import Decimal
 
 
 class SampleCaajPlugin(CaajPlugin):

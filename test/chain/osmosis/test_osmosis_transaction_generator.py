@@ -1,8 +1,9 @@
-from decimal import Decimal
 import json
 import os
+from decimal import Decimal
 from pathlib import Path
-from unittest.mock import patch, call, ANY
+from unittest.mock import ANY, call, patch
+
 from src.senkalib.senka_setting import SenkaSetting
 
 

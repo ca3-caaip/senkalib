@@ -1,12 +1,13 @@
-import unittest
-from unittest.mock import *
-from src.senkalib.chain.bsc.bsc_transaction_generator import BscTransactionGenerator
 import json
-from pathlib import Path
 import os
-from src.senkalib.senka_setting import SenkaSetting
+import unittest
+from pathlib import Path
 from unittest.mock import *
+
 from web3.eth import Eth
+
+from src.senkalib.chain.bsc.bsc_transaction_generator import BscTransactionGenerator
+from src.senkalib.senka_setting import SenkaSetting
 
 
 class TestBscTransactionGenerator(unittest.TestCase):

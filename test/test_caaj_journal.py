@@ -1,7 +1,8 @@
-from platform import platform
 import unittest
-from senkalib.caaj_journal import CaajJournal
 from decimal import Decimal
+from platform import platform
+
+from senkalib.caaj_journal import CaajJournal
 
 
 class TestCaajJounal(unittest.TestCase):

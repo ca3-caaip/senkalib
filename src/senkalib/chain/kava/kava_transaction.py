@@ -1,6 +1,7 @@
-from senkalib.chain.transaction import Transaction
-from decimal import *
 from datetime import datetime as dt
+from decimal import *
+
+from senkalib.chain.transaction import Transaction
 
 getcontext().prec = 50
 

@@ -1,12 +1,13 @@
 from math import inf
 from typing import List
-from senkalib.senka_setting import SenkaSetting
+
 from senkalib.chain.cosmostation_api_client import (
     CosmostationApiClient,
     kava_tx_history_records,
 )
 from senkalib.chain.kava.kava_transaction import KavaTransaction
 from senkalib.chain.transaction_generator import TransactionGenerator
+from senkalib.senka_setting import SenkaSetting
 
 
 class KavaTransactionGenerator(TransactionGenerator):

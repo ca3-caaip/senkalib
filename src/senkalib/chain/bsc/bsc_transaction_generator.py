@@ -1,11 +1,13 @@
+import asyncio
+from typing import List
+
+from bscscan import BscScan
+from web3 import Web3
+
 from senkalib.chain.bsc.bsc_transaction import BscTransaction
 from senkalib.chain.transaction import Transaction
 from senkalib.chain.transaction_generator import TransactionGenerator
 from senkalib.senka_setting import SenkaSetting
-from web3 import Web3
-from bscscan import BscScan
-from typing import List
-import asyncio
 
 
 class BscTransactionGenerator(TransactionGenerator):

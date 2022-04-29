@@ -1,9 +1,10 @@
 from dataclasses import dataclass
-from dateutil import parser
-from operator import attrgetter
 from math import inf
+from operator import attrgetter
 from typing import List
+
 import requests
+from dateutil import parser
 
 
 @dataclass

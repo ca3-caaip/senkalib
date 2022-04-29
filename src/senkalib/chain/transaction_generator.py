@@ -1,7 +1,8 @@
 from abc import ABCMeta, abstractmethod
+from typing import List
+
 from senkalib.chain.transaction import Transaction
 from senkalib.senka_setting import SenkaSetting
-from typing import List
 
 
 class TransactionGenerator(metaclass=ABCMeta):
