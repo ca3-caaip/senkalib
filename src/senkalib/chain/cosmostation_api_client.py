@@ -4,6 +4,7 @@ from operator import attrgetter
 from math import inf
 from typing import List
 import requests
+from time import sleep
 
 
 @dataclass
@@ -61,6 +62,8 @@ class CosmostationApiClient():
 
       if len(result) < 50:
         return cls.sort_transactions_order(total_result)
+      
+      sleep(1)
 
   @classmethod
   def get_txs(cls, chain: str, address: str, id_from: int) -> List[dict]:
@@ -71,9 +74,9 @@ class CosmostationApiClient():
 
 
 COSMOSTATION_API_HOSTS = {
-  'atom': 'api.cosmostation.io',
-  'kava': 'api-kava.cosmostation.io',
-  'osmosis': 'api-osmosis.cosmostation.io',
+  'atom': 'api',
+  'kava': 'api-kava',
+  'osmosis': 'api-osmosis',
 }
 
 def get_cosmostation_api_host(chain: str):
