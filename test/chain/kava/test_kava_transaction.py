@@ -18,13 +18,29 @@ class TestKavaTransaction(unittest.TestCase):
     transaction = KavaTransaction(swap_transaction)
     fee = transaction.get_transaction_fee()
     self.assertEqual(fee, Decimal('1000'))
+  
+  def test_get_legacy_transaction_fee(self):
+    swap_transaction = json.loads(Path('%s/../../testdata/chain/kava/delegate_v8(legacy).json' % os.path.dirname(__file__)).read_text())
+    transaction = KavaTransaction(swap_transaction)
+    fee = transaction.get_transaction_fee()
+    self.assertEqual(fee, Decimal('100'))
 
   def test_get_transaction_mepty_fee_list(self):
     swap_transaction = json.loads(Path('%s/../../testdata/chain/kava/empty_fee_list.json' % os.path.dirname(__file__)).read_text())
     transaction = KavaTransaction(swap_transaction)
     fee = transaction.get_transaction_fee()
     self.assertEqual(fee, Decimal('0'))
+  
+  def test_get_fail(self):
+    swap_transaction = json.loads(Path('%s/../../testdata/chain/kava/create_atomic_swap.json' % os.path.dirname(__file__)).read_text())
+    transaction = KavaTransaction(swap_transaction)
+    failed = transaction.get_fail()
+    self.assertEqual(failed, False)
 
+    swap_transaction = json.loads(Path('%s/../../testdata/chain/kava/fail_v8.json' % os.path.dirname(__file__)).read_text())
+    transaction = KavaTransaction(swap_transaction)
+    failed = transaction.get_fail()
+    self.assertEqual(failed, True)
 
 if __name__ == '__main__':
   unittest.main()
