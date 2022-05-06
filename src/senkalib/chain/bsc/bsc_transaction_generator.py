@@ -23,7 +23,7 @@ class BscTransactionGenerator(TransactionGenerator):
         starttime: Union[int, None] = None,
         endtime: Union[int, None] = None,
     ) -> List[Transaction]:
-        settings = settings.get_settings()
+        settings_bsc = settings.get_settings()
         startblock = startblock if startblock is not None else 0
         endblock = endblock if endblock is not None else None
         w3 = Web3(Web3.HTTPProvider("https://bsc-dataseed.binance.org/"))
@@ -33,7 +33,7 @@ class BscTransactionGenerator(TransactionGenerator):
         while True:
             txs = asyncio.run(
                 BscTransactionGenerator.get_txs(
-                    settings, address, startblock, endblock, page
+                    settings_bsc, address, startblock, endblock, page
                 )
             )
             for tx in txs:

@@ -1,5 +1,5 @@
 from datetime import datetime as dt
-from decimal import Decimal
+from decimal import Decimal, getcontext
 
 from senkalib.chain.transaction import Transaction
 

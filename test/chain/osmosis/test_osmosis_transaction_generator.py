@@ -43,7 +43,7 @@ class TestOsmosisTransactionGenerator:
             OsmosisTransactionGenerator,
         )
 
-        settings = SenkaSetting({})
+        settings = SenkaSetting(dict())
         get_txs.return_value = TestOsmosisTransactionGenerator.mock_get_txs()
         transactions = OsmosisTransactionGenerator.get_transactions(
             settings, "osmo1xq5du8upw2fmyx7h43w8uqv47vln70hre92wvm"

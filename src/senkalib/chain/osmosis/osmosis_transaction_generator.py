@@ -1,3 +1,4 @@
+import sys
 from math import inf
 from typing import List, Union
 
@@ -18,22 +19,22 @@ class OsmosisTransactionGenerator(TransactionGenerator):
         cls,
         settings: SenkaSetting,
         address: str,
-        startblock: Union[int, None] = None,
-        endblock: Union[int, None] = None,
-        starttime: Union[int, None] = None,
-        endtime: Union[int, None] = None,
+        startblock: int = 0,
+        endblock: int = sys.maxsize,
+        starttime: int = 0,
+        endtime: int = sys.maxsize,
     ) -> List[OsmosisTransaction]:
-        startblock = startblock if startblock is not None else 0
-        endblock = endblock if endblock is not None else inf
-        starttime = starttime if starttime is not None else 0
-        endtime = endtime if endtime is not None else inf
-
         return list(
             map(
                 OsmosisTransaction,
-                CosmostationApiClient.get_transactions_by_address(chain=cls.chain, address=address,
-                                                                  startblock=startblock, endblock=endblock,
-                                                                  starttime=starttime, endtime=endtime,
-                                                                  cache=osmosis_tx_history_records),
+                CosmostationApiClient.get_transactions_by_address(
+                    chain=cls.chain,
+                    address=address,
+                    startblock=startblock,
+                    endblock=endblock,
+                    starttime=starttime,
+                    endtime=endtime,
+                    cache=osmosis_tx_history_records,
+                ),
             )
         )

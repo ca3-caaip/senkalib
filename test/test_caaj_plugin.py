@@ -1,6 +1,6 @@
 import unittest
 from decimal import Decimal
-from typing import List
+from typing import List, Union
 
 from senkalib.caaj_journal import CaajJournal
 from senkalib.caaj_plugin import CaajPlugin
@@ -9,11 +9,13 @@ from senkalib.chain.transaction import Transaction
 
 class SampleCaajPlugin(CaajPlugin):
     @classmethod
-    def can_handle(cls, transaction: Transaction):
+    def can_handle(cls, transaction: Union[Transaction, str]) -> bool:
         return True
 
     @classmethod
-    def get_caajs(cls, address: str, transaction: Transaction) -> List[CaajJournal]:
+    def get_caajs(
+        cls, address: str, transaction: Union[Transaction, None]
+    ) -> List[CaajJournal]:
         jounal = CaajJournal(
             "2022-01-01 00:00:00",
             "chain",
@@ -36,7 +38,7 @@ class SampleCaajPlugin(CaajPlugin):
 class TestCaajPlugin(unittest.TestCase):
     def test_cat_handle(self):
         result = SampleCaajPlugin.can_handle("XXXXXXXXXXXXXXXXXXXXXXX")
-        assert result == True
+        assert result is True
 
     def test_get_caajs(self):
         result = SampleCaajPlugin.get_caajs("0x1111111111111111", None)

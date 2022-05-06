@@ -30,15 +30,11 @@ class TestBscTransactionGenerator(unittest.TestCase):
                     startblock=13526335,
                     endblock=14353208,
                 )
-        timestamp = transactions[0].get_timestamp()
-        fee = transactions[0].get_transaction_fee()
-        transaction_receipt = transactions[0].get_transaction_receipt()
+                timestamp = transactions[0].get_timestamp()
+                fee = transactions[0].get_transaction_fee()
 
-        self.assertEqual(timestamp, "2021-12-28 01:30:55")
-        self.assertEqual(fee, 222150000000000)
-        self.assertEqual(
-            transaction_receipt["from"], "0xDa28ecfc40181a6DAD8b52723035DFba3386d26E"
-        )
+                self.assertEqual(timestamp, "2021-12-28 01:30:55")
+                self.assertEqual(fee, 222150000000000)
 
     @classmethod
     async def mock_get_txs(

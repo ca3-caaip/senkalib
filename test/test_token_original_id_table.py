@@ -25,6 +25,8 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                     "osmosis",
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
                 )
+                if metadata is None:
+                    assert False
                 assert metadata["symbol_uuid"] == "e7816a15-ce91-0aa8-0508-21d0d19f3aa8"
                 assert metadata["symbol"] == "atom"
                 assert metadata["description"] == "native token for cosmos"
