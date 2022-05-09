@@ -1,6 +1,5 @@
 import unittest
 from decimal import Decimal
-from platform import platform
 
 from senkalib.caaj_journal import CaajJournal
 
