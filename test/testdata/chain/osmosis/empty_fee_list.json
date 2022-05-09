@@ -1,158 +1,158 @@
 {
-    "header": {
-        "id": 5702439,
-        "chain_id": "osmosis-1",
-        "block_id": 1793970,
-        "timestamp": "2021-10-30T15:36:04Z"
-    },
-    "data": {
-        "height": "1793902",
-        "txhash": "C01B48C7D42A57396F8D5FF9695CC870EE1A5E7EBB5D254ACF273E1E58B4F4F0",
-        "codespace": "",
-        "code": 0,
-        "data": "0A160A14737761705F65786163745F616D6F756E745F696E",
-        "raw_log": "[{\"events\":[{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"swap_exact_amount_in\"},{\"key\":\"sender\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"},{\"key\":\"sender\",\"value\":\"osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu\"},{\"key\":\"module\",\"value\":\"gamm\"},{\"key\":\"sender\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"}]},{\"type\":\"token_swapped\",\"attributes\":[{\"key\":\"module\",\"value\":\"gamm\"},{\"key\":\"sender\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"},{\"key\":\"pool_id\",\"value\":\"6\"},{\"key\":\"tokens_in\",\"value\":\"1113864319ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84\"},{\"key\":\"tokens_out\",\"value\":\"1038020ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2\"}]},{\"type\":\"transfer\",\"attributes\":[{\"key\":\"recipient\",\"value\":\"osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu\"},{\"key\":\"sender\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"},{\"key\":\"amount\",\"value\":\"1113864319ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84\"},{\"key\":\"recipient\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"},{\"key\":\"sender\",\"value\":\"osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu\"},{\"key\":\"amount\",\"value\":\"1038020ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2\"}]}]}]",
-        "logs": [
-            {
-                "msg_index": 0,
-                "log": "",
-                "events": [
-                    {
-                        "type": "message",
-                        "attributes": [
-                            {
-                                "key": "action",
-                                "value": "swap_exact_amount_in"
-                            },
-                            {
-                                "key": "sender",
-                                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
-                            },
-                            {
-                                "key": "sender",
-                                "value": "osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu"
-                            },
-                            {
-                                "key": "module",
-                                "value": "gamm"
-                            },
-                            {
-                                "key": "sender",
-                                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "token_swapped",
-                        "attributes": [
-                            {
-                                "key": "module",
-                                "value": "gamm"
-                            },
-                            {
-                                "key": "sender",
-                                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
-                            },
-                            {
-                                "key": "pool_id",
-                                "value": "6"
-                            },
-                            {
-                                "key": "tokens_in",
-                                "value": "1113864319ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84"
-                            },
-                            {
-                                "key": "tokens_out",
-                                "value": "1038020ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "transfer",
-                        "attributes": [
-                            {
-                                "key": "recipient",
-                                "value": "osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu"
-                            },
-                            {
-                                "key": "sender",
-                                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
-                            },
-                            {
-                                "key": "amount",
-                                "value": "1113864319ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84"
-                            },
-                            {
-                                "key": "recipient",
-                                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
-                            },
-                            {
-                                "key": "sender",
-                                "value": "osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu"
-                            },
-                            {
-                                "key": "amount",
-                                "value": "1038020ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "info": "",
-        "gas_wanted": "1000000",
-        "gas_used": "285870",
-        "tx": {
-            "@type": "/cosmos.tx.v1beta1.Tx",
-            "body": {
-                "messages": [
-                    {
-                        "@type": "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
-                        "sender": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m",
-                        "routes": [
-                            {
-                                "poolId": "6",
-                                "tokenOutDenom": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
-                            }
-                        ],
-                        "tokenIn": {
-                            "denom": "ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84",
-                            "amount": "1113864319"
-                        },
-                        "tokenOutMinAmount": "1"
-                    }
-                ],
-                "memo": "",
-                "timeout_height": "0",
-                "extension_options": [],
-                "non_critical_extension_options": []
-            },
-            "auth_info": {
-                "signer_infos": [
-                    {
-                        "public_key": {
-                            "@type": "/cosmos.crypto.secp256k1.PubKey",
-                            "key": "ApOFh9bPVIfwUw6EyQj1VuehIj+tiiRLBrDXx7tHOUQI"
-                        },
-                        "mode_info": {
-                            "single": {
-                                "mode": "SIGN_MODE_DIRECT"
-                            }
-                        },
-                        "sequence": "17827"
-                    }
-                ],
-                "fee": {
-                    "amount": [],
-                    "gas_limit": "1000000",
-                    "payer": "",
-                    "granter": ""
-                }
-            },
-            "signatures": [
-                "025H6PLg5yppzp/HU6o4jK4cwM3/hqqtJIdZDbb+OtZQyL8coXSCLmsCoYKpjrFXXTbywX1Rnys0Xn39KKQDnA=="
+  "header": {
+    "id": 5702439,
+    "chain_id": "osmosis-1",
+    "block_id": 1793970,
+    "timestamp": "2021-10-30T15:36:04Z"
+  },
+  "data": {
+    "height": "1793902",
+    "txhash": "C01B48C7D42A57396F8D5FF9695CC870EE1A5E7EBB5D254ACF273E1E58B4F4F0",
+    "codespace": "",
+    "code": 0,
+    "data": "0A160A14737761705F65786163745F616D6F756E745F696E",
+    "raw_log": "[{\"events\":[{\"type\":\"message\",\"attributes\":[{\"key\":\"action\",\"value\":\"swap_exact_amount_in\"},{\"key\":\"sender\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"},{\"key\":\"sender\",\"value\":\"osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu\"},{\"key\":\"module\",\"value\":\"gamm\"},{\"key\":\"sender\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"}]},{\"type\":\"token_swapped\",\"attributes\":[{\"key\":\"module\",\"value\":\"gamm\"},{\"key\":\"sender\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"},{\"key\":\"pool_id\",\"value\":\"6\"},{\"key\":\"tokens_in\",\"value\":\"1113864319ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84\"},{\"key\":\"tokens_out\",\"value\":\"1038020ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2\"}]},{\"type\":\"transfer\",\"attributes\":[{\"key\":\"recipient\",\"value\":\"osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu\"},{\"key\":\"sender\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"},{\"key\":\"amount\",\"value\":\"1113864319ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84\"},{\"key\":\"recipient\",\"value\":\"osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m\"},{\"key\":\"sender\",\"value\":\"osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu\"},{\"key\":\"amount\",\"value\":\"1038020ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2\"}]}]}]",
+    "logs": [
+      {
+        "msg_index": 0,
+        "log": "",
+        "events": [
+          {
+            "type": "message",
+            "attributes": [
+              {
+                "key": "action",
+                "value": "swap_exact_amount_in"
+              },
+              {
+                "key": "sender",
+                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
+              },
+              {
+                "key": "sender",
+                "value": "osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu"
+              },
+              {
+                "key": "module",
+                "value": "gamm"
+              },
+              {
+                "key": "sender",
+                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
+              }
             ]
-        },
-        "timestamp": "2021-10-30T15:36:04Z"
-    }
+          },
+          {
+            "type": "token_swapped",
+            "attributes": [
+              {
+                "key": "module",
+                "value": "gamm"
+              },
+              {
+                "key": "sender",
+                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
+              },
+              {
+                "key": "pool_id",
+                "value": "6"
+              },
+              {
+                "key": "tokens_in",
+                "value": "1113864319ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84"
+              },
+              {
+                "key": "tokens_out",
+                "value": "1038020ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
+              }
+            ]
+          },
+          {
+            "type": "transfer",
+            "attributes": [
+              {
+                "key": "recipient",
+                "value": "osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu"
+              },
+              {
+                "key": "sender",
+                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
+              },
+              {
+                "key": "amount",
+                "value": "1113864319ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84"
+              },
+              {
+                "key": "recipient",
+                "value": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m"
+              },
+              {
+                "key": "sender",
+                "value": "osmo1p0rpttlp8v2hy7m82l2t9p6545788f2ac3yksgrlycke2wr4mu0qdr7ytu"
+              },
+              {
+                "key": "amount",
+                "value": "1038020ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "info": "",
+    "gas_wanted": "1000000",
+    "gas_used": "285870",
+    "tx": {
+      "@type": "/cosmos.tx.v1beta1.Tx",
+      "body": {
+        "messages": [
+          {
+            "@type": "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn",
+            "sender": "osmo1wr4z83lv5m0pzyvt0weyea93gqrj0ey94djg7m",
+            "routes": [
+              {
+                "poolId": "6",
+                "tokenOutDenom": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
+              }
+            ],
+            "tokenIn": {
+              "denom": "ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84",
+              "amount": "1113864319"
+            },
+            "tokenOutMinAmount": "1"
+          }
+        ],
+        "memo": "",
+        "timeout_height": "0",
+        "extension_options": [],
+        "non_critical_extension_options": []
+      },
+      "auth_info": {
+        "signer_infos": [
+          {
+            "public_key": {
+              "@type": "/cosmos.crypto.secp256k1.PubKey",
+              "key": "ApOFh9bPVIfwUw6EyQj1VuehIj+tiiRLBrDXx7tHOUQI"
+            },
+            "mode_info": {
+              "single": {
+                "mode": "SIGN_MODE_DIRECT"
+              }
+            },
+            "sequence": "17827"
+          }
+        ],
+        "fee": {
+          "amount": [],
+          "gas_limit": "1000000",
+          "payer": "",
+          "granter": ""
+        }
+      },
+      "signatures": [
+        "025H6PLg5yppzp/HU6o4jK4cwM3/hqqtJIdZDbb+OtZQyL8coXSCLmsCoYKpjrFXXTbywX1Rnys0Xn39KKQDnA=="
+      ]
+    },
+    "timestamp": "2021-10-30T15:36:04Z"
+  }
 }
