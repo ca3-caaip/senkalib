@@ -32,3 +32,6 @@ class KavaTransaction(Transaction):
   
   def get_fail(self):
     return self.fail
+  
+  def get_chain_version(self):
+    return self.chain_version
