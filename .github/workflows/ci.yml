@@ -17,6 +17,6 @@ jobs:
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-      - run: poetry config virtualenvs.in-project true && poetry config experimental.new-installer false && poetry install
+      - run: poetry config virtualenvs.in-project true && poetry install
       - uses: pre-commit/action@v2.0.3
       - run: poetry run pytest -v --cov=src
