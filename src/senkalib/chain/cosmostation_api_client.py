@@ -1,8 +1,8 @@
-from dataclasses import dataclass
-from math import inf
-from operator import attrgetter
-from typing import List, Union
 import sys
+from dataclasses import dataclass
+from operator import attrgetter
+from typing import List
+
 import requests
 from dateutil import parser
 

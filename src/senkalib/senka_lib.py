@@ -1,13 +1,8 @@
-import csv
 import importlib
-import io
 import os
 import re
 from typing import List
 
-import requests
-
-from senkalib.caaj_journal import CaajJournal
 from senkalib.chain.transaction_generator import TransactionGenerator
 
 
@@ -31,7 +26,7 @@ class SenkaLib:
 
             for dir in dirs:
                 module = importlib.import_module(
-                    f"senkalib.chain.{dir}.{dir}_transaction_generator", f"senkalib"
+                    f"senkalib.chain.{dir}.{dir}_transaction_generator", "senkalib"
                 )
                 transaction_generator = list(f"{dir}_transaction_generator")
                 transaction_generator[0] = transaction_generator[0].upper()

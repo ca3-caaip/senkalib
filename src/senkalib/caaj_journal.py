@@ -1,6 +1,5 @@
 import dataclasses
 from decimal import Decimal
-from typing import List
 
 
 @dataclasses.dataclass

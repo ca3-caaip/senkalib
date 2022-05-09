@@ -1,6 +1,5 @@
 import sys
-from math import inf
-from typing import List, Union
+from typing import List
 
 from senkalib.chain.cosmostation_api_client import (
     CosmostationApiClient,
