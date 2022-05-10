@@ -1,10 +1,10 @@
 import sys
 from dataclasses import dataclass
 from operator import attrgetter
+from time import sleep
 from typing import List
 
 import requests
-from time import sleep
 from dateutil import parser
 
 
