@@ -72,7 +72,7 @@ class CosmostationApiClient:
                     continue
 
             if len(result) < 50:
-              return cls.sort_transactions_order(total_result)
+                return cls.sort_transactions_order(total_result)
 
             sleep(1)
 
@@ -88,9 +88,9 @@ class CosmostationApiClient:
 
 
 COSMOSTATION_API_HOSTS = {
-  'atom': 'api',
-  'kava': 'api-kava',
-  'osmosis': 'api-osmosis',
+    "atom": "api",
+    "kava": "api-kava",
+    "osmosis": "api-osmosis",
 }
 
 

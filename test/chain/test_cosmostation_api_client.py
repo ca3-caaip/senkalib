@@ -87,7 +87,10 @@ class TestCosmostationApiClientInternals(TestCase):
         assert to_timestamp("2022-01-01T08:59:59Z") == 1641027599
 
     def test_get_cosmostation_api_host(self):
-        assert get_cosmostation_api_host('atom') == 'api'
-        assert get_cosmostation_api_host('osmosis') == 'api-osmosis'
-        with self.assertRaisesRegex(ValueError, "invalid chain is not implemented. check following supported chains: .+"):
-            get_cosmostation_api_host('invalid chain')
+        assert get_cosmostation_api_host("atom") == "api"
+        assert get_cosmostation_api_host("osmosis") == "api-osmosis"
+        with self.assertRaisesRegex(
+            ValueError,
+            "invalid chain is not implemented. check following supported chains: .+",
+        ):
+            get_cosmostation_api_host("invalid chain")
