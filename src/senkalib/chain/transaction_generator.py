@@ -1,12 +1,22 @@
 from abc import ABCMeta, abstractmethod
-from senkalib.chain.transaction import Transaction 
+from typing import List, Union
+
+from senkalib.chain.transaction import Transaction
 from senkalib.senka_setting import SenkaSetting
-from typing import List
+
 
 class TransactionGenerator(metaclass=ABCMeta):
-  chain = None
+    chain = None
 
-  @classmethod
-  @abstractmethod
-  def get_transactions(cls, settings:SenkaSetting, address:str, startblock:int = None, endblock:int = None, starttime:int = None, endtime:int = None) -> List[Transaction]:
-    pass
+    @classmethod
+    @abstractmethod
+    def get_transactions(
+        cls,
+        settings: SenkaSetting,
+        address: str,
+        startblock: Union[int, None] = None,
+        endblock: Union[int, None] = None,
+        starttime: Union[int, None] = None,
+        endtime: Union[int, None] = None,
+    ) -> List[Transaction]:
+        pass
