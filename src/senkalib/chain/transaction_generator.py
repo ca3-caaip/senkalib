@@ -20,3 +20,12 @@ class TransactionGenerator(metaclass=ABCMeta):
         endtime: Union[int, None] = None,
     ) -> List[Transaction]:
         pass
+
+    @classmethod
+    @abstractmethod
+    def get_transactions_from_data(
+        cls,
+        settings: SenkaSetting,
+        data: dict,
+    ) -> List[Transaction]:
+        pass
