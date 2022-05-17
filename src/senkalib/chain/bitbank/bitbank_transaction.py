@@ -13,11 +13,11 @@ class BitbankTransaction(Transaction):
     def get_timestamp(self) -> str:
         return self.transaction["取引日時"]
 
-    def get_amount(self) -> float:
-        return self.transaction["数量"]
+    def get_amount(self) -> Decimal:
+        return Decimal(self.transaction["数量"])
 
-    def get_price(self) -> float:
-        return self.transaction["価格"]
+    def get_price(self) -> Decimal:
+        return Decimal(self.transaction["価格"])
 
     def get_transaction_fee(self) -> Decimal:
         return Decimal(self.transaction["手数料"])
