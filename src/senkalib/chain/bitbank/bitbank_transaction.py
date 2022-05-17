@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from senkalib.chain.transaction import Transaction
 
 
@@ -17,8 +19,8 @@ class BitbankTransaction(Transaction):
     def get_price(self) -> float:
         return self.transaction["価格"]
 
-    def get_fee(self) -> float:
-        return self.transaction["手数料"]
+    def get_transaction_fee(self) -> Decimal:
+        return Decimal(self.transaction["手数料"])
 
     def get_pair(self) -> str:
         return self.transaction["通貨ペア"]
