@@ -22,7 +22,7 @@ class BitbankTransaction(Transaction):
     def get_transaction_fee(self) -> Decimal:
         return Decimal(self.transaction["手数料"])
 
-    def get_pair(self) -> str:
+    def get_token_pair(self) -> str:
         return self.transaction["通貨ペア"]
 
     def get_transaction_data_type(self) -> str:
