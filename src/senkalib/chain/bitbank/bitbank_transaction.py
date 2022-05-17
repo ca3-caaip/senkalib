@@ -25,7 +25,7 @@ class BitbankTransaction(Transaction):
     def get_pair(self) -> str:
         return self.transaction["通貨ペア"]
 
-    def get_type(self) -> str:
+    def get_transaction_data_type(self) -> str:
         return self.transaction["data_type"]
 
     def get_trade_type(self) -> str:
