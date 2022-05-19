@@ -23,9 +23,9 @@ class TransactionGenerator(metaclass=ABCMeta):
 
     @classmethod
     @abstractmethod
-    def get_transactions_from_data(
+    def get_transactions_from_csv(
         cls,
         settings: SenkaSetting,
-        data: dict,
+        data: str,
     ) -> List[Transaction]:
         pass
