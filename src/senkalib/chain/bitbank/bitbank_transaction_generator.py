@@ -21,3 +21,7 @@ class BitbankTransactionGenerator(TransactionGenerator):
     def set_data_type(data: dict) -> dict:
         data["data_type"] = "bitbank_exchange"
         return data
+
+    @staticmethod
+    def validate_exchange(data: dict) -> bool:
+        return True
