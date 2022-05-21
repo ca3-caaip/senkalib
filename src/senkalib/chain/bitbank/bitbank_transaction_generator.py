@@ -15,7 +15,7 @@ class BitbankTransactionGenerator(TransactionGenerator):
     chain = "bitbank"
 
     @classmethod
-    def get_transaction_from_csv(
+    def get_transaction_from_data(
         cls, settings: SenkaSetting, data: str
     ) -> list[BitbankTransaction]:
         if BitbankTransactionGenerator._validate(data) == DataType.exchange:

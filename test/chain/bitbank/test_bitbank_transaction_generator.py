@@ -24,6 +24,6 @@ class TestBitbankTransactionGenerator:
             "%s/../../testdata/chain/bitbank/bitbank_exchange.csv"
             % os.path.dirname(__file__)
         ).read_text()
-        return BitbankTransactionGenerator.get_transaction_from_csv(
+        return BitbankTransactionGenerator.get_transaction_from_data(
             settings_mock, csvfile
         )
