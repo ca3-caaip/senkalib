@@ -35,9 +35,18 @@ class BitbankTransactionGenerator(TransactionGenerator):
     @staticmethod
     def _validate(data: str) -> DataType:
         header = csv.reader(data.splitlines()).__next__()
-        if set(header) == set(
-            ["注文ID", "取引ID", "通貨ペア", "タイプ", "売/買", "数量", "価格", "手数料", "M/T", "取引日時"]
-        ):
+        if set(header) == {
+            "注文ID",
+            "取引ID",
+            "通貨ペア",
+            "タイプ",
+            "売/買",
+            "数量",
+            "価格",
+            "手数料",
+            "M/T",
+            "取引日時",
+        }:
             return DataType.exchange
         else:
             return DataType.unknown
