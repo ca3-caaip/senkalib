@@ -45,8 +45,3 @@ class TestBitbankTransaction(object):
         )
         transaction = BitbankTransaction(data_json[0])
         return transaction
-
-
-if __name__ == "__main__":
-    test = TestBitbankTransaction()
-    test.test_get_timestamp()
