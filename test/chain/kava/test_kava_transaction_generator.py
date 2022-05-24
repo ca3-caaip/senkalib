@@ -16,15 +16,18 @@ class TestKavaTransactionGenerator:
             KavaTransactionGenerator,
         )
 
+        transaction_params = {
+            "type": "address",
+            "settings": SenkaSetting({}),
+            "address": "address",
+            "starttime": 1,
+            "endtime": 2,
+            "startblock": 3,
+            "endblock": 4,
+        }
+
         get_transactions_by_address.return_value = []
-        KavaTransactionGenerator.get_transactions(
-            SenkaSetting({}),
-            address="address",
-            starttime=1,
-            endtime=2,
-            startblock=3,
-            endblock=4,
-        )
+        KavaTransactionGenerator.get_transactions(transaction_params)
         assert get_transactions_by_address.mock_calls == [
             call(
                 chain="kava",
@@ -43,11 +46,14 @@ class TestKavaTransactionGenerator:
             KavaTransactionGenerator,
         )
 
-        settings = SenkaSetting({})
+        transaction_params = {
+            "type": "address",
+            "settings": SenkaSetting({}),
+            "address": "kava1af7lm2qv9zp526gjd3cdxrpr9zeangjlyhjqjx",
+        }
+
         get_txs.return_value = TestKavaTransactionGenerator.mock_get_txs()
-        transactions = KavaTransactionGenerator.get_transactions(
-            settings, "kava1af7lm2qv9zp526gjd3cdxrpr9zeangjlyhjqjx"
-        )
+        transactions = KavaTransactionGenerator.get_transactions(transaction_params)
         assert len(transactions) == 31
 
         transaction = transactions[0]

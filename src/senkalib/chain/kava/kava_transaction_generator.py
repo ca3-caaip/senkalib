@@ -7,32 +7,26 @@ from senkalib.chain.cosmostation_api_client import (
 )
 from senkalib.chain.kava.kava_transaction import KavaTransaction
 from senkalib.chain.transaction_generator import TransactionGenerator
-from senkalib.senka_setting import SenkaSetting
 
 
 class KavaTransactionGenerator(TransactionGenerator):
     chain = "kava"
 
     @classmethod
-    def get_transactions(
-        cls,
-        settings: SenkaSetting,
-        address: str,
-        startblock: int = 0,
-        endblock: int = sys.maxsize,
-        starttime: int = 0,
-        endtime: int = sys.maxsize,
-    ) -> List[KavaTransaction]:
+    def get_transactions(cls, transaction_params: dict) -> List[KavaTransaction]:
+        if transaction_params["type"] != "address":
+            raise ValueError("type must be 'address'")
+
         return list(
             map(
                 KavaTransaction,
                 CosmostationApiClient.get_transactions_by_address(
-                    chain="kava",
-                    address=address,
-                    startblock=startblock,
-                    endblock=endblock,
-                    starttime=starttime,
-                    endtime=endtime,
+                    chain=cls.chain,
+                    address=transaction_params["address"],
+                    startblock=transaction_params.get("startblock", 0),
+                    endblock=transaction_params.get("endblock", sys.maxsize),
+                    starttime=transaction_params.get("starttime", 0),
+                    endtime=transaction_params.get("endtime", sys.maxsize),
                     cache=kava_tx_history_records,
                 ),
             )
