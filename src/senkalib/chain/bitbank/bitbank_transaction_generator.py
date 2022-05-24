@@ -10,6 +10,19 @@ class DataType(Enum):
     unknown = auto()
 
 
+class Exchange(Enum):
+    order_id = "注文ID"
+    transaction_id = "取引ID"
+    pair = "通貨ペア"
+    type = "タイプ"
+    side = "売/買"
+    amount = "数量"
+    price = "価格"
+    fee = "手数料"
+    m_t = "M/T"
+    timestamp = "取引日時"
+
+
 class BitbankTransactionGenerator(TransactionGenerator):
     chain = "bitbank"
 
@@ -35,16 +48,16 @@ class BitbankTransactionGenerator(TransactionGenerator):
     def _validate(data: str) -> DataType:
         header = csv.reader(data.splitlines()).__next__()
         if set(header) == {
-            "注文ID",
-            "取引ID",
-            "通貨ペア",
-            "タイプ",
-            "売/買",
-            "数量",
-            "価格",
-            "手数料",
-            "M/T",
-            "取引日時",
+            Exchange.order_id.value,
+            Exchange.transaction_id.value,
+            Exchange.pair.value,
+            Exchange.type.value,
+            Exchange.side.value,
+            Exchange.amount.value,
+            Exchange.price.value,
+            Exchange.fee.value,
+            Exchange.m_t.value,
+            Exchange.timestamp.value,
         }:
             return DataType.exchange
         else:
