@@ -7,32 +7,25 @@ from senkalib.chain.cosmostation_api_client import (
 )
 from senkalib.chain.osmosis.osmosis_transaction import OsmosisTransaction
 from senkalib.chain.transaction_generator import TransactionGenerator
-from senkalib.senka_setting import SenkaSetting
 
 
 class OsmosisTransactionGenerator(TransactionGenerator):
     chain = "osmosis"
 
     @classmethod
-    def get_transactions(
-        cls,
-        settings: SenkaSetting,
-        address: str,
-        startblock: int = 0,
-        endblock: int = sys.maxsize,
-        starttime: int = 0,
-        endtime: int = sys.maxsize,
-    ) -> List[OsmosisTransaction]:
+    def get_transactions(cls, transaction_params: dict) -> List[OsmosisTransaction]:
+        if transaction_params["type"] != "address":
+            raise ValueError("type must be 'address'")
         return list(
             map(
                 OsmosisTransaction,
                 CosmostationApiClient.get_transactions_by_address(
                     chain=cls.chain,
-                    address=address,
-                    startblock=startblock,
-                    endblock=endblock,
-                    starttime=starttime,
-                    endtime=endtime,
+                    address=transaction_params["address"],
+                    startblock=transaction_params.get("startblock", 0),
+                    endblock=transaction_params.get("endblock", sys.maxsize),
+                    starttime=transaction_params.get("starttime", 0),
+                    endtime=transaction_params.get("endtime", sys.maxsize),
                     cache=osmosis_tx_history_records,
                 ),
             )
