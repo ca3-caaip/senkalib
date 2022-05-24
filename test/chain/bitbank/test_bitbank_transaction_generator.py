@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from unittest.mock import MagicMock
 
 from senkalib.chain.bitbank.bitbank_transaction import BitbankTransaction
 from senkalib.chain.bitbank.bitbank_transaction_generator import (
@@ -19,11 +18,9 @@ class TestBitbankTransactionGenerator:
 
     @staticmethod
     def _get_transaction_from_csv() -> list[BitbankTransaction]:
-        settings_mock = MagicMock()
-        csvfile = Path(
+        csvtext = Path(
             "%s/../../testdata/chain/bitbank/bitbank_exchange.csv"
             % os.path.dirname(__file__)
         ).read_text()
-        return BitbankTransactionGenerator.get_transaction_from_data(
-            settings_mock, csvfile
-        )
+        transaction_params = {"data": csvtext, "type": "csv"}
+        return BitbankTransactionGenerator.get_transactions(transaction_params)

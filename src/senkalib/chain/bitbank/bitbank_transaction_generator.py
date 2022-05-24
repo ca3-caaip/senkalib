@@ -3,7 +3,6 @@ from enum import Enum, auto
 
 from senkalib.chain.bitbank.bitbank_transaction import BitbankTransaction
 from senkalib.chain.transaction_generator import TransactionGenerator
-from senkalib.senka_setting import SenkaSetting
 
 
 class DataType(Enum):
@@ -15,15 +14,15 @@ class BitbankTransactionGenerator(TransactionGenerator):
     chain = "bitbank"
 
     @classmethod
-    def get_transaction_from_data(
-        cls, settings: SenkaSetting, data: str
-    ) -> list[BitbankTransaction]:
+    def get_transactions(cls, transaction_params: dict) -> list[BitbankTransaction]:
+        if transaction_params["type"] != "csv":
+            raise ValueError("type must be str")
+        data = transaction_params["data"]
         if BitbankTransactionGenerator._validate(data) == DataType.exchange:
             reader = csv.DictReader(data.splitlines())
             dict_data = [row for row in reader]
             data_with_type = list(map(cls._set_data_type, dict_data))
             return list(map(BitbankTransaction, data_with_type))
-
         else:
             raise ValueError("Invalid data")
 
