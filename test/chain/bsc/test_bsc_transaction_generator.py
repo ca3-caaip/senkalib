@@ -24,11 +24,15 @@ class TestBscTransactionGenerator(unittest.TestCase):
                 "get_transaction_receipt",
                 new=TestBscTransactionGenerator.mock_get_transaction_receipt,
             ):
+                transaction_params = {
+                    "type": "address",
+                    "address": "0x0000000000000000000000000000000000000000",
+                    "startblock": 0,
+                    "endblock": 0,
+                    "settings": settings,
+                }
                 transactions = BscTransactionGenerator.get_transactions(
-                    settings,
-                    "0x0Dee38f987ca1EFE37da2cC39c6b2ace0A61A95A",
-                    startblock=13526335,
-                    endblock=14353208,
+                    transaction_params
                 )
                 timestamp = transactions[0].get_timestamp()
                 fee = transactions[0].get_transaction_fee()
