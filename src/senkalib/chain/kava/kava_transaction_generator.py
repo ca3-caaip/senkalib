@@ -22,7 +22,7 @@ class KavaTransactionGenerator(TransactionGenerator):
                 KavaTransaction,
                 CosmostationApiClient.get_transactions_by_address(
                     chain=cls.chain,
-                    address=transaction_params["address"],
+                    address=transaction_params["data"],
                     startblock=transaction_params.get("startblock", 0),
                     endblock=transaction_params.get("endblock", sys.maxsize),
                     starttime=transaction_params.get("starttime", 0),

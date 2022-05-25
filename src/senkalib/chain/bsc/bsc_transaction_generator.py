@@ -33,7 +33,7 @@ class BscTransactionGenerator(TransactionGenerator):
             txs = asyncio.run(
                 BscTransactionGenerator.get_txs(
                     settings_bsc,
-                    transaction_params["address"],
+                    transaction_params["data"],
                     startblock,
                     endblock,
                     page,
