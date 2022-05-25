@@ -17,7 +17,7 @@ class TestOsmosisTransactionGenerator:
         get_transactions_by_address.return_value = []
         transaction_params = {
             "type": "address",
-            "address": "address",
+            "data": "address",
             "starttime": 1,
             "endtime": 2,
             "startblock": 3,
@@ -45,7 +45,7 @@ class TestOsmosisTransactionGenerator:
         get_txs.return_value = TestOsmosisTransactionGenerator.mock_get_txs()
         transaction_params = {
             "type": "address",
-            "address": "osmo1xq5du8upw2fmyx7h43w8uqv47vln70hre92wvm",
+            "data": "osmo1xq5du8upw2fmyx7h43w8uqv47vln70hre92wvm",
         }
         transactions = OsmosisTransactionGenerator.get_transactions(transaction_params)
         assert len(transactions) == 44

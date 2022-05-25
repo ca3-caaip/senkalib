@@ -19,7 +19,7 @@ class TestKavaTransactionGenerator:
         transaction_params = {
             "type": "address",
             "settings": SenkaSetting({}),
-            "address": "address",
+            "data": "address",
             "starttime": 1,
             "endtime": 2,
             "startblock": 3,
@@ -49,7 +49,7 @@ class TestKavaTransactionGenerator:
         transaction_params = {
             "type": "address",
             "settings": SenkaSetting({}),
-            "address": "kava1af7lm2qv9zp526gjd3cdxrpr9zeangjlyhjqjx",
+            "data": "kava1af7lm2qv9zp526gjd3cdxrpr9zeangjlyhjqjx",
         }
 
         get_txs.return_value = TestKavaTransactionGenerator.mock_get_txs()

@@ -26,7 +26,7 @@ class TestBscTransactionGenerator(unittest.TestCase):
             ):
                 transaction_params = {
                     "type": "address",
-                    "address": "0x0000000000000000000000000000000000000000",
+                    "data": "0x0000000000000000000000000000000000000000",
                     "startblock": 0,
                     "endblock": 0,
                     "settings": settings,
