@@ -34,15 +34,9 @@ class BitbankTransactionGenerator(TransactionGenerator):
         if BitbankTransactionGenerator._validate(data) == DataType.exchange:
             reader = csv.DictReader(data.splitlines())
             dict_data = [row for row in reader]
-            data_with_type = list(map(cls._set_data_type, dict_data))
-            return list(map(BitbankTransaction, data_with_type))
+            return list(map(BitbankTransaction, dict_data))
         else:
             raise ValueError("Invalid data")
-
-    @staticmethod
-    def _set_data_type(data: dict) -> dict:
-        data["data_type"] = "bitbank_exchange"
-        return data
 
     @staticmethod
     def _validate(data: str) -> DataType:

@@ -39,8 +39,5 @@ class BitbankTransaction(Transaction):
     def get_token_pair(self) -> str:
         return self.transaction[TransactionKey.pair.value]
 
-    def get_transaction_data_type(self) -> str:
-        return self.transaction["data_type"]
-
     def get_trade_type(self) -> str:
         return self.transaction[TransactionKey.trade_type.value]

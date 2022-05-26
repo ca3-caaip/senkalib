@@ -27,10 +27,6 @@ class TestBitbankTransaction(object):
         transaction = self._get_test_transaction()
         assert transaction.get_token_pair() == "mona_jpy"
 
-    def test_get_transaction_data_type(self):
-        transaction = self._get_test_transaction()
-        assert transaction.get_transaction_data_type() == "bitbank_exchange"
-
     def test_get_trade_type(self):
         transaction = self._get_test_transaction()
         assert transaction.get_trade_type() == "buy"

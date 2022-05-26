@@ -12,10 +12,6 @@ class TestBitbankTransactionGenerator:
         transaction = self._get_transaction_from_csv()
         assert transaction[0].get_transaction_id() == "1215140489"
 
-    def test_generate_transaction_data_type(self):
-        transaction = self._get_transaction_from_csv()
-        assert transaction[0].get_transaction_data_type() == "bitbank_exchange"
-
     @staticmethod
     def _get_transaction_from_csv() -> list[BitbankTransaction]:
         csvtext = Path(
