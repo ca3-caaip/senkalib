@@ -7,25 +7,24 @@ from web3 import Web3
 from senkalib.chain.bsc.bsc_transaction import BscTransaction
 from senkalib.chain.transaction import Transaction
 from senkalib.chain.transaction_generator import TransactionGenerator
-from senkalib.senka_setting import SenkaSetting
 
 
 class BscTransactionGenerator(TransactionGenerator):
     chain = "bsc"
 
     @classmethod
-    def get_transactions(
-        cls,
-        settings: SenkaSetting,
-        address: str,
-        startblock: Union[int, None] = None,
-        endblock: Union[int, None] = None,
-        starttime: Union[int, None] = None,
-        endtime: Union[int, None] = None,
-    ) -> List[Transaction]:
-        settings_bsc = settings.get_settings()
-        startblock = startblock if startblock is not None else 0
-        endblock = endblock if endblock is not None else None
+    def get_transactions(cls, transaction_params: dict) -> List[Transaction]:
+        settings_bsc = transaction_params["settings"].get_settings()
+        startblock = (
+            transaction_params["startblock"]
+            if transaction_params["startblock"] is not None
+            else 0
+        )
+        endblock = (
+            transaction_params["endblock"]
+            if transaction_params["endblock"] is not None
+            else None
+        )
         w3 = Web3(Web3.HTTPProvider("https://bsc-dataseed.binance.org/"))
         transactions = []
 
@@ -33,7 +32,11 @@ class BscTransactionGenerator(TransactionGenerator):
         while True:
             txs = asyncio.run(
                 BscTransactionGenerator.get_txs(
-                    settings_bsc, address, startblock, endblock, page
+                    settings_bsc,
+                    transaction_params["data"],
+                    startblock,
+                    endblock,
+                    page,
                 )
             )
             for tx in txs:

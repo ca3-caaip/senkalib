@@ -4,8 +4,6 @@ from decimal import Decimal
 from pathlib import Path
 from unittest.mock import ANY, call, patch
 
-from src.senkalib.senka_setting import SenkaSetting
-
 
 class TestOsmosisTransactionGenerator:
     @patch(
@@ -17,14 +15,15 @@ class TestOsmosisTransactionGenerator:
         )
 
         get_transactions_by_address.return_value = []
-        OsmosisTransactionGenerator.get_transactions(
-            SenkaSetting({}),
-            address="address",
-            starttime=1,
-            endtime=2,
-            startblock=3,
-            endblock=4,
-        )
+        transaction_params = {
+            "type": "address",
+            "data": "address",
+            "starttime": 1,
+            "endtime": 2,
+            "startblock": 3,
+            "endblock": 4,
+        }
+        OsmosisTransactionGenerator.get_transactions(transaction_params)
         assert get_transactions_by_address.mock_calls == [
             call(
                 chain="osmosis",
@@ -43,11 +42,12 @@ class TestOsmosisTransactionGenerator:
             OsmosisTransactionGenerator,
         )
 
-        settings = SenkaSetting(dict())
         get_txs.return_value = TestOsmosisTransactionGenerator.mock_get_txs()
-        transactions = OsmosisTransactionGenerator.get_transactions(
-            settings, "osmo1xq5du8upw2fmyx7h43w8uqv47vln70hre92wvm"
-        )
+        transaction_params = {
+            "type": "address",
+            "data": "osmo1xq5du8upw2fmyx7h43w8uqv47vln70hre92wvm",
+        }
+        transactions = OsmosisTransactionGenerator.get_transactions(transaction_params)
         assert len(transactions) == 44
         transaction = transactions[0]
         assert transaction.get_timestamp() == "2022-01-13 12:46:46"
