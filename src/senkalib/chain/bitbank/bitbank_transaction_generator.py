@@ -1,7 +1,10 @@
 import csv
 from enum import Enum, auto
 
-from senkalib.chain.bitbank.bitbank_transaction import BitbankTransaction
+from senkalib.chain.bitbank.bitbank_transaction import (
+    BitbankTransaction,
+    TransactionKey,
+)
 from senkalib.chain.transaction_generator import TransactionGenerator
 
 
@@ -10,26 +13,13 @@ class DataType(Enum):
     unknown = auto()
 
 
-class Exchange(Enum):
-    order_id = "注文ID"
-    transaction_id = "取引ID"
-    pair = "通貨ペア"
-    type = "タイプ"
-    side = "売/買"
-    amount = "数量"
-    price = "価格"
-    fee = "手数料"
-    m_t = "M/T"
-    timestamp = "取引日時"
-
-
 class BitbankTransactionGenerator(TransactionGenerator):
     chain = "bitbank"
 
     @classmethod
     def get_transactions(cls, transaction_params: dict) -> list[BitbankTransaction]:
         if transaction_params["type"] != "csv":
-            raise ValueError("type must be str")
+            raise ValueError("type must be csv")
         data = transaction_params["data"]
         if BitbankTransactionGenerator._validate(data) == DataType.exchange:
             reader = csv.DictReader(data.splitlines())
@@ -42,16 +32,16 @@ class BitbankTransactionGenerator(TransactionGenerator):
     def _validate(data: str) -> DataType:
         header = csv.reader(data.splitlines()).__next__()
         if set(header) == {
-            Exchange.order_id.value,
-            Exchange.transaction_id.value,
-            Exchange.pair.value,
-            Exchange.type.value,
-            Exchange.side.value,
-            Exchange.amount.value,
-            Exchange.price.value,
-            Exchange.fee.value,
-            Exchange.m_t.value,
-            Exchange.timestamp.value,
+            TransactionKey.order_id.value,
+            TransactionKey.transaction_id.value,
+            TransactionKey.pair.value,
+            TransactionKey.type.value,
+            TransactionKey.side.value,
+            TransactionKey.amount.value,
+            TransactionKey.price.value,
+            TransactionKey.fee.value,
+            TransactionKey.m_t.value,
+            TransactionKey.timestamp.value,
         }:
             return DataType.exchange
         else:
