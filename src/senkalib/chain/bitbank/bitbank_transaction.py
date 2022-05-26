@@ -9,7 +9,7 @@ class TransactionKey(Enum):
     transaction_id = "取引ID"
     pair = "通貨ペア"
     type = "タイプ"
-    trade_type = "売/買"
+    side = "売/買"
     amount = "数量"
     price = "価格"
     fee = "手数料"
@@ -39,5 +39,5 @@ class BitbankTransaction(Transaction):
     def get_token_pair(self) -> str:
         return self.transaction[TransactionKey.pair.value]
 
-    def get_trade_type(self) -> str:
-        return self.transaction[TransactionKey.trade_type.value]
+    def get_side(self) -> str:
+        return self.transaction[TransactionKey.side.value]

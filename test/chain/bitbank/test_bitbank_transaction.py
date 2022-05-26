@@ -27,15 +27,15 @@ class TestBitbankTransaction(object):
         transaction = self._get_test_transaction()
         assert transaction.get_token_pair() == "mona_jpy"
 
-    def test_get_trade_type(self):
+    def test_get_side(self):
         transaction = self._get_test_transaction()
-        assert transaction.get_trade_type() == "buy"
+        assert transaction.get_side() == "buy"
 
     @staticmethod
     def _get_test_transaction() -> BitbankTransaction:
         data_json = json.loads(
             Path(
-                "%s/../../testdata/chain/bitbank/bitbank_exchange_with_data_type.json"
+                "%s/../../testdata/chain/bitbank/bitbank_exchange.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
