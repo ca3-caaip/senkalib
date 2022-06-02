@@ -8,7 +8,13 @@ class TokenOriginalIdTable:
     def __init__(self, csv_url: str):
         res = requests.get(csv_url).content.decode()
         csv_reader = csv.DictReader(res.strip().splitlines())
-        token_original_id_table = [row for row in csv_reader]
+        token_original_id_table_without_bool = [row for row in csv_reader]
+        token_original_id_table = list(
+            map(
+                TokenOriginalIdTable._replace_bool_from_str,
+                token_original_id_table_without_bool,
+            )
+        )
         self.token_original_id_table = token_original_id_table
 
     def get_all_meta_data(
@@ -34,7 +40,7 @@ class TokenOriginalIdTable:
     def get_all_meta_data_without_platform(
         self, token_original_id: str, primary: bool = True
     ) -> Union[dict, None]:
-        oneject_token = list(
+        object_token = list(
             filter(
                 lambda x: x["original_id"] == token_original_id
                 and x["primary"] == primary,
@@ -42,9 +48,9 @@ class TokenOriginalIdTable:
             )
         )
         token_symbol = None
-        if len(oneject_token) == 1:
-            token_symbol = oneject_token[0]
-        elif len(oneject_token) > 1:
+        if len(object_token) == 1:
+            token_symbol = object_token[0]
+        elif len(object_token) > 1:
             raise ValueError(
                 f"token_original_id table have duplicated definition. token_original_id: {token_original_id}"
             )
@@ -120,3 +126,11 @@ class TokenOriginalIdTable:
             return meta_data["platform"]
         else:
             return None
+
+    @staticmethod
+    def _replace_bool_from_str(value: dict) -> dict:
+        if value["primary"] == "TRUE":
+            value["primary"] = True
+        elif value["primary"] == "FALSE":
+            value["primary"] = False
+        return value
