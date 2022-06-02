@@ -40,6 +40,21 @@ class TestBscTransactionGenerator(unittest.TestCase):
                 self.assertEqual(timestamp, "2021-12-28 01:30:55")
                 self.assertEqual(fee, 222150000000000)
 
+                # minimum_params
+                transaction_params = {
+                    "type": "address",
+                    "data": "0x0000000000000000000000000000000000000000",
+                    "settings": settings,
+                }
+                transactions = BscTransactionGenerator.get_transactions(
+                    transaction_params
+                )
+                timestamp = transactions[0].get_timestamp()
+                fee = transactions[0].get_transaction_fee()
+
+                self.assertEqual(timestamp, "2021-12-28 01:30:55")
+                self.assertEqual(fee, 222150000000000)
+
     @classmethod
     async def mock_get_txs(
         cls,
