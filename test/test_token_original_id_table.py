@@ -88,12 +88,11 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                     token_original_id_table = TokenOriginalIdTable(
                         TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
                     )
-                    platform = token_original_id_table.get_symbol(
+                    token_original_id_table.get_symbol(
                         "osmosis",
                         "ibc/7C4D60AA95E5A7558B0A364860979CA34B7FF8AAF255B87AF9E879374470CEC0",
                         True,
                     )
-                    assert platform == "osmosis"
 
     class TestContent:
         @classmethod
