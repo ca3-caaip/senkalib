@@ -21,7 +21,7 @@ class TokenOriginalIdTable:
         self,
         platform: Union[str, None],
         token_original_id: str,
-        primary: bool,
+        primary: Union[bool, None],
     ) -> Union[dict, None]:
         if platform is not None:
             object_token = list(
@@ -51,7 +51,10 @@ class TokenOriginalIdTable:
         return token_symbol
 
     def get_symbol_uuid(
-        self, platform: Union[str, None], token_original_id: str, primary: bool = True
+        self,
+        platform: Union[str, None],
+        token_original_id: str,
+        primary: Union[bool, None] = None,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id, primary)
         if meta_data is not None:
@@ -60,7 +63,10 @@ class TokenOriginalIdTable:
             return None
 
     def get_symbol(
-        self, platform: Union[str, None], token_original_id: str, primary: bool = True
+        self,
+        platform: Union[str, None],
+        token_original_id: str,
+        primary: Union[bool, None] = None,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id, primary)
         if meta_data is not None:
