@@ -20,7 +20,6 @@ class TokenOriginalIdTable:
         self,
         platform: str,
         token_original_id: str,
-        primary: bool = True,
     ) -> Union[dict, None]:
         object_token = list(
             filter(
@@ -34,7 +33,7 @@ class TokenOriginalIdTable:
             object_token = list(
                 filter(
                     lambda x: x["original_id"] == token_original_id
-                    and x["primary"] == primary,
+                    and x["primary"] is True,
                     self.token_original_id_table,
                 )
             )
@@ -52,9 +51,8 @@ class TokenOriginalIdTable:
         self,
         platform: str,
         token_original_id: str,
-        primary: bool = True,
     ) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(platform, token_original_id, primary)
+        meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["symbol_uuid"]
         else:
@@ -64,9 +62,8 @@ class TokenOriginalIdTable:
         self,
         platform: str,
         token_original_id: str,
-        primary: bool = True,
     ) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(platform, token_original_id, primary)
+        meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["symbol"]
         else:
@@ -76,10 +73,8 @@ class TokenOriginalIdTable:
         self,
         platform: str,
         token_original_id: str,
-        primary: bool = True,
     ) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(platform, token_original_id, primary)
-        meta_data = self.get_all_meta_data(platform, token_original_id, primary)
+        meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["description"]
         else:

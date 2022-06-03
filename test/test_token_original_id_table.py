@@ -22,7 +22,6 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                 metadata = token_original_id_table.get_all_meta_data(
                     "osmosis",
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
-                    True,
                 )
                 if metadata is None:
                     assert False
@@ -91,7 +90,6 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                     token_original_id_table.get_symbol(
                         "osmosis",
                         "ibc/7C4D60AA95E5A7558B0A364860979CA34B7FF8AAF255B87AF9E879374470CEC0",
-                        True,
                     )
 
     class TestContent:
