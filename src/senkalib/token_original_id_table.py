@@ -78,7 +78,7 @@ class TokenOriginalIdTable:
         self,
         platform: Union[str, None],
         token_original_id: str,
-        primary: bool = True,
+        primary: Union[bool, None] = None,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id, primary)
         if meta_data is not None:
@@ -89,7 +89,7 @@ class TokenOriginalIdTable:
     def get_platform(
         self,
         token_original_id: str,
-        primary: bool = True,
+        primary: Union[bool, None] = None,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(None, token_original_id, primary)
         if meta_data is not None:
@@ -103,4 +103,10 @@ class TokenOriginalIdTable:
             value["primary"] = True
         elif value["primary"] == "FALSE":
             value["primary"] = False
+        else:
+            raise ValueError(
+                f"token_original_id table have invalid primary value."
+                f" primary: {value['primary']}"
+                f" original_id: {value['original_id']}"
+            )
         return value
