@@ -2,6 +2,7 @@ import csv
 import unittest
 from unittest.mock import patch
 
+import pytest
 import requests
 
 from senkalib.token_original_id_table import TokenOriginalIdTable
@@ -21,7 +22,7 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                 metadata = token_original_id_table.get_all_meta_data(
                     "osmosis",
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
-                    None,
+                    True,
                 )
                 if metadata is None:
                     assert False
@@ -76,19 +77,23 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                 )
                 assert description == "native token for cosmos"
 
-    def test_get_platform(self):
-        with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
-            with patch.object(
-                csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
-            ):
-                token_original_id_table = TokenOriginalIdTable(
-                    TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
-                )
-                platform = token_original_id_table.get_platform(
-                    "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
-                    True,
-                )
-                assert platform == "osmosis"
+    def test_wrong_primary(self):
+        with pytest.raises(ValueError):
+            with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
+                with patch.object(
+                    csv,
+                    "DictReader",
+                    new=TestTokenOriginalIdTable.mock_DictReader_wrong_primary,
+                ):
+                    token_original_id_table = TokenOriginalIdTable(
+                        TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
+                    )
+                    platform = token_original_id_table.get_symbol(
+                        "osmosis",
+                        "ibc/7C4D60AA95E5A7558B0A364860979CA34B7FF8AAF255B87AF9E879374470CEC0",
+                        True,
+                    )
+                    assert platform == "osmosis"
 
     class TestContent:
         @classmethod
@@ -215,15 +220,22 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                 "original_id": "ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84",
                 "primary": "FALSE",
             },
+        ]
+        return token_original_id_table
+
+    @classmethod
+    def mock_DictReader_wrong_primary(cls, src):
+        token_original_id_table = [
             {
                 "symbol_uuid": "8ad58d58-f143-3b82-f011-e43eb6c14cfb",
                 "symbol": "iris",
-                "description": "native token for irisnet",
+                "description": "wrongly primary",
                 "platform": "osmosis",
                 "original_id": "ibc/7C4D60AA95E5A7558B0A364860979CA34B7FF8AAF255B87AF9E879374470CEC0",
-                "primary": "FALSE",
+                "primary": "WronglyPrimary",
             },
         ]
+
         return token_original_id_table
 
 

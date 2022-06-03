@@ -18,20 +18,19 @@ class TokenOriginalIdTable:
 
     def get_all_meta_data(
         self,
-        platform: Union[str, None],
+        platform: str,
         token_original_id: str,
-        primary: Union[bool, None],
+        primary: bool = True,
     ) -> Union[dict, None]:
-        if platform is not None:
-            object_token = list(
-                filter(
-                    lambda x: x["original_id"] == token_original_id
-                    and x["platform"] == platform,
-                    self.token_original_id_table,
-                )
+        object_token = list(
+            filter(
+                lambda x: x["original_id"] == token_original_id
+                and x["platform"] == platform,
+                self.token_original_id_table,
             )
+        )
 
-        elif platform is None:
+        if len(object_token) == 0:
             object_token = list(
                 filter(
                     lambda x: x["original_id"] == token_original_id
@@ -51,9 +50,9 @@ class TokenOriginalIdTable:
 
     def get_symbol_uuid(
         self,
-        platform: Union[str, None],
+        platform: str,
         token_original_id: str,
-        primary: Union[bool, None] = None,
+        primary: bool = True,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id, primary)
         if meta_data is not None:
@@ -63,9 +62,9 @@ class TokenOriginalIdTable:
 
     def get_symbol(
         self,
-        platform: Union[str, None],
+        platform: str,
         token_original_id: str,
-        primary: Union[bool, None] = None,
+        primary: bool = True,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id, primary)
         if meta_data is not None:
@@ -75,32 +74,22 @@ class TokenOriginalIdTable:
 
     def get_description(
         self,
-        platform: Union[str, None],
+        platform: str,
         token_original_id: str,
-        primary: Union[bool, None] = None,
+        primary: bool = True,
     ) -> Union[str, None]:
+        meta_data = self.get_all_meta_data(platform, token_original_id, primary)
         meta_data = self.get_all_meta_data(platform, token_original_id, primary)
         if meta_data is not None:
             return meta_data["description"]
         else:
             return None
 
-    def get_platform(
-        self,
-        token_original_id: str,
-        primary: Union[bool, None] = None,
-    ) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(None, token_original_id, primary)
-        if meta_data is not None:
-            return meta_data["platform"]
-        else:
-            return None
-
     @staticmethod
     def _replace_bool_from_str(value: dict) -> dict:
-        if value["primary"] in ["TRUE", "True", "true"]:
+        if value["primary"].lower() == "true":
             value["primary"] = True
-        elif value["primary"] in ["FALSE", "False", "false"]:
+        elif value["primary"].lower() == "false":
             value["primary"] = False
         else:
             raise ValueError(
