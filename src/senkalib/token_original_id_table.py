@@ -98,9 +98,9 @@ class TokenOriginalIdTable:
 
     @staticmethod
     def _replace_bool_from_str(value: dict) -> dict:
-        if value["primary"] == "TRUE":
+        if value["primary"] in ["TRUE", "True", "true"]:
             value["primary"] = True
-        elif value["primary"] == "FALSE":
+        elif value["primary"] in ["FALSE", "False", "false"]:
             value["primary"] = False
         else:
             raise ValueError(
