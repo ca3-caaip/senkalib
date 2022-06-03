@@ -18,35 +18,29 @@ class TokenOriginalIdTable:
         self.token_original_id_table = token_original_id_table
 
     def get_all_meta_data(
-        self, platform: str, token_original_id: str
+        self,
+        platform: Union[str, None],
+        token_original_id: str,
+        primary: bool,
     ) -> Union[dict, None]:
+        if platform is not None:
+            object_token = list(
+                filter(
+                    lambda x: x["original_id"] == token_original_id
+                    and x["platform"] == platform,
+                    self.token_original_id_table,
+                )
+            )
 
-        object_token = list(
-            filter(
-                lambda x: x["original_id"] == token_original_id
-                and x["platform"] == platform,
-                self.token_original_id_table,
+        elif platform is None:
+            object_token = list(
+                filter(
+                    lambda x: x["original_id"] == token_original_id
+                    and x["primary"] == primary,
+                    self.token_original_id_table,
+                )
             )
-        )
-        token_symbol = None
-        if len(object_token) == 1:
-            token_symbol = object_token[0]
-        elif len(object_token) > 1:
-            raise ValueError(
-                f"token_original_id table have duplicated definition. token_original_id: {token_original_id}"
-            )
-        return token_symbol
 
-    def get_all_meta_data_without_platform(
-        self, token_original_id: str, primary: bool = True
-    ) -> Union[dict, None]:
-        object_token = list(
-            filter(
-                lambda x: x["original_id"] == token_original_id
-                and x["primary"] == primary,
-                self.token_original_id_table,
-            )
-        )
         token_symbol = None
         if len(object_token) == 1:
             token_symbol = object_token[0]
@@ -59,40 +53,20 @@ class TokenOriginalIdTable:
     def get_symbol_uuid(
         self, platform: Union[str, None], token_original_id: str, primary: bool = True
     ) -> Union[str, None]:
-        if platform is not None:
-            meta_data = self.get_all_meta_data(platform, token_original_id)
-            if meta_data is not None:
-                return meta_data["symbol_uuid"]
-            else:
-                return None
-
+        meta_data = self.get_all_meta_data(platform, token_original_id, primary)
+        if meta_data is not None:
+            return meta_data["symbol_uuid"]
         else:
-            meta_data = self.get_all_meta_data_without_platform(
-                token_original_id, primary
-            )
-            if meta_data is not None:
-                return meta_data["symbol_uuid"]
-            else:
-                return None
+            return None
 
     def get_symbol(
         self, platform: Union[str, None], token_original_id: str, primary: bool = True
     ) -> Union[str, None]:
-        if platform is not None:
-            meta_data = self.get_all_meta_data(platform, token_original_id)
-            if meta_data is not None:
-                return meta_data["symbol"]
-            else:
-                return None
-
+        meta_data = self.get_all_meta_data(platform, token_original_id, primary)
+        if meta_data is not None:
+            return meta_data["symbol"]
         else:
-            meta_data = self.get_all_meta_data_without_platform(
-                token_original_id, primary
-            )
-            if meta_data is not None:
-                return meta_data["symbol"]
-            else:
-                return None
+            return None
 
     def get_description(
         self,
@@ -100,28 +74,18 @@ class TokenOriginalIdTable:
         token_original_id: str,
         primary: bool = True,
     ) -> Union[str, None]:
-        if platform is not None:
-            meta_data = self.get_all_meta_data(platform, token_original_id)
-            if meta_data is not None:
-                return meta_data["description"]
-            else:
-                return None
-
+        meta_data = self.get_all_meta_data(platform, token_original_id, primary)
+        if meta_data is not None:
+            return meta_data["description"]
         else:
-            meta_data = self.get_all_meta_data_without_platform(
-                token_original_id, primary
-            )
-            if meta_data is not None:
-                return meta_data["description"]
-            else:
-                return None
+            return None
 
     def get_platform(
         self,
         token_original_id: str,
         primary: bool = True,
     ) -> Union[str, None]:
-        meta_data = self.get_all_meta_data_without_platform(token_original_id, primary)
+        meta_data = self.get_all_meta_data(None, token_original_id, primary)
         if meta_data is not None:
             return meta_data["platform"]
         else:
