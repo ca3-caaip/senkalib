@@ -8,11 +8,10 @@ class TokenOriginalIdTable:
     def __init__(self, csv_url: str):
         res = requests.get(csv_url).content.decode()
         csv_reader = csv.DictReader(res.strip().splitlines())
-        token_original_id_table_without_bool = [row for row in csv_reader]
         token_original_id_table = list(
             map(
                 TokenOriginalIdTable._replace_bool_from_str,
-                token_original_id_table_without_bool,
+                [row for row in csv_reader],
             )
         )
         self.token_original_id_table = token_original_id_table
