@@ -15,8 +15,8 @@ class BscTransactionGenerator(TransactionGenerator):
     @classmethod
     def get_transactions(cls, transaction_params: dict) -> List[Transaction]:
         settings_bsc = transaction_params["settings"].get_settings()
-        startblock = transaction_params.get("startblock", 0),
-        endblock = transaction_params.get("endblock", None),
+        startblock: int = transaction_params.get("startblock", 0)
+        endblock: Union[int, None] = transaction_params.get("endblock", None)
         w3 = Web3(Web3.HTTPProvider("https://bsc-dataseed.binance.org/"))
         transactions = []
 
