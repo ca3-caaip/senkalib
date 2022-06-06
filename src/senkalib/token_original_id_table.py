@@ -12,14 +12,27 @@ class TokenOriginalIdTable:
         self.token_original_id_table = token_original_id_table
 
     def get_all_meta_data(
-        self, chain: str, token_original_id: str
+        self,
+        platform: str,
+        token_original_id: str,
     ) -> Union[dict, None]:
         object_token = list(
             filter(
-                lambda x: x["original_id"] == token_original_id and x["chain"] == chain,
+                lambda x: x["original_id"] == token_original_id
+                and x["platform"] == platform,
                 self.token_original_id_table,
             )
         )
+
+        if len(object_token) == 0:
+            object_token = list(
+                filter(
+                    lambda x: x["original_id"] == token_original_id
+                    and x.get("primary", ""),
+                    self.token_original_id_table,
+                )
+            )
+
         token_symbol = None
         if len(object_token) == 1:
             token_symbol = object_token[0]
@@ -29,30 +42,35 @@ class TokenOriginalIdTable:
             )
         return token_symbol
 
-    def get_symbol_uuid(self, chain: str, token_original_id: str) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(chain, token_original_id)
+    def get_symbol_uuid(
+        self,
+        platform: str,
+        token_original_id: str,
+    ) -> Union[str, None]:
+        meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["symbol_uuid"]
         else:
             return None
 
-    def get_symbol(self, chain: str, token_original_id: str) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(chain, token_original_id)
+    def get_symbol(
+        self,
+        platform: str,
+        token_original_id: str,
+    ) -> Union[str, None]:
+        meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["symbol"]
         else:
             return None
 
-    def get_description(self, chain: str, token_original_id: str) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(chain, token_original_id)
+    def get_description(
+        self,
+        platform: str,
+        token_original_id: str,
+    ) -> Union[str, None]:
+        meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["description"]
-        else:
-            return None
-
-    def get_chain(self, chain: str, token_original_id: str) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(chain, token_original_id)
-        if meta_data is not None:
-            return meta_data["chain"]
         else:
             return None
