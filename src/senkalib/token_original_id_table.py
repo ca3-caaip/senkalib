@@ -41,9 +41,7 @@ class TokenOriginalIdTable:
                 f"token_original_id table have duplicated definition. token_original_id: {token_original_id}"
             )
         elif len(object_token) == 0:
-            raise ValueError(
-                f"token_original_id table have not this token({token_original_id})"
-            )
+            token_symbol = None
         return token_symbol
 
     def get_symbol_uuid(
