@@ -8,12 +8,7 @@ class TokenOriginalIdTable:
     def __init__(self, csv_url: str):
         res = requests.get(csv_url).content.decode()
         csv_reader = csv.DictReader(res.strip().splitlines())
-        token_original_id_table = list(
-            map(
-                TokenOriginalIdTable._replace_bool_from_str,
-                [row for row in csv_reader],
-            )
-        )
+        token_original_id_table = [row for row in csv_reader]
         self.token_original_id_table = token_original_id_table
 
     def get_all_meta_data(
@@ -33,7 +28,7 @@ class TokenOriginalIdTable:
             object_token = list(
                 filter(
                     lambda x: x["original_id"] == token_original_id
-                    and x["primary"] is True,
+                    and x.get("primary", "").lower() == "true",
                     self.token_original_id_table,
                 )
             )
@@ -79,17 +74,3 @@ class TokenOriginalIdTable:
             return meta_data["description"]
         else:
             return None
-
-    @staticmethod
-    def _replace_bool_from_str(value: dict) -> dict:
-        if value["primary"].lower() == "true":
-            value["primary"] = True
-        elif value["primary"].lower() == "false":
-            value["primary"] = False
-        else:
-            raise ValueError(
-                f"token_original_id table have invalid primary value."
-                f" primary: {value['primary']}"
-                f" original_id: {value['original_id']}"
-            )
-        return value
