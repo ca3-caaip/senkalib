@@ -2,6 +2,7 @@ import csv
 import unittest
 from unittest.mock import patch
 
+import pytest
 import requests
 
 from senkalib.token_original_id_table import TokenOriginalIdTable
@@ -74,6 +75,26 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
                 )
                 assert description == "native token for cosmos"
+
+    def test_primary_is_empty(self):
+        with pytest.raises(ValueError) as e:
+            with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
+                with patch.object(
+                    csv,
+                    "DictReader",
+                    new=TestTokenOriginalIdTable.mock_DictReader_primary_with_empty,
+                ):
+                    token_original_id_table = TokenOriginalIdTable(
+                        TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
+                    )
+                    token_original_id_table.get_description(
+                        "wrong_platform",
+                        "ibc/BE1BB42D4BE3C30D50B68D7C41DB4DFCE9678E8EF8C539F6E6A9345048894FCC",
+                    )
+        assert (
+            str(e.value)
+            == "token_original_id table have not this token(ibc/BE1BB42D4BE3C30D50B68D7C41DB4DFCE9678E8EF8C539F6E6A9345048894FCC)"
+        )
 
     class TestContent:
         @classmethod
@@ -198,6 +219,20 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                 "description": "native token for sentinel",
                 "platform": "osmosis",
                 "original_id": "ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84",
+                "primary": "",
+            },
+        ]
+        return token_original_id_table
+
+    @classmethod
+    def mock_DictReader_primary_with_empty(cls, src) -> list:
+        token_original_id_table = [
+            {
+                "symbol_uuid": "432374c6-5e69-eb86-10d9-8c49176aeb1b",
+                "symbol": "ust",
+                "description": "doller peg token on terra",
+                "platform": "osmosis",
+                "original_id": "ibc/BE1BB42D4BE3C30D50B68D7C41DB4DFCE9678E8EF8C539F6E6A9345048894FCC",
                 "primary": "",
             },
         ]

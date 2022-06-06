@@ -28,7 +28,7 @@ class TokenOriginalIdTable:
             object_token = list(
                 filter(
                     lambda x: x["original_id"] == token_original_id
-                    and x.get("primary", "").lower() == "true",
+                    and x.get("primary", ""),
                     self.token_original_id_table,
                 )
             )
@@ -39,6 +39,10 @@ class TokenOriginalIdTable:
         elif len(object_token) > 1:
             raise ValueError(
                 f"token_original_id table have duplicated definition. token_original_id: {token_original_id}"
+            )
+        elif len(object_token) == 0:
+            raise ValueError(
+                f"token_original_id table have not this token({token_original_id})"
             )
         return token_symbol
 
