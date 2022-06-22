@@ -7,9 +7,9 @@ from senkalib.caaj_journal import CaajJournal
 class TestCaajJounal(unittest.TestCase):
     def test_init(self):
         executed_at = "2022-01-12 11:11:11"
-        chain = "chain"
         platform = "platform"
         application = "application"
+        service = "service"
         transaction_id = (
             "0x36512c7e09e3570dfc53176252678ee9617660550d36f4da797afba6fc55bba6"
         )
@@ -27,9 +27,9 @@ class TestCaajJounal(unittest.TestCase):
 
         cj = CaajJournal(
             executed_at,
-            chain,
             platform,
             application,
+            service,
             transaction_id,
             trade_uuid,
             type,
@@ -42,9 +42,9 @@ class TestCaajJounal(unittest.TestCase):
             comment,
         )
         assert cj.executed_at == "2022-01-12 11:11:11"
-        assert cj.chain == "chain"
         assert cj.platform == "platform"
         assert cj.application == "application"
+        assert cj.service == "service"
         assert (
             cj.transaction_id
             == "0x36512c7e09e3570dfc53176252678ee9617660550d36f4da797afba6fc55bba6"
