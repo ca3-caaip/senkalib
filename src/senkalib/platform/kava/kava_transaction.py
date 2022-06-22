@@ -12,7 +12,7 @@ class KavaTransaction(Transaction):
     def __init__(self, transaction: dict):
         super().__init__(transaction["data"]["txhash"])
         self.transaction = transaction
-        self.platform_id = transaction["header"]["platform_id"]
+        self.platform_id = transaction["header"]["chain_id"]
         self.platform_version = int(self.platform_id.split("-")[1])
         self.fail = False
         if "code" in transaction["data"] and transaction["data"]["code"] != 0:

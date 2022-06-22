@@ -2,7 +2,7 @@
   {
     "header": {
       "id": 5134402,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 10348486,
       "timestamp": "2022-04-01T09:20:35Z"
     },
@@ -314,7 +314,7 @@
   {
     "header": {
       "id": 4835837,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 10062031,
       "timestamp": "2022-03-09T23:01:48Z"
     },
@@ -680,7 +680,7 @@
   {
     "header": {
       "id": 4432313,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9657480,
       "timestamp": "2022-02-06T01:23:52Z"
     },
@@ -1022,7 +1022,7 @@
   {
     "header": {
       "id": 4432305,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9657469,
       "timestamp": "2022-02-06T01:22:38Z"
     },
@@ -1305,7 +1305,7 @@
   {
     "header": {
       "id": 4431982,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9656983,
       "timestamp": "2022-02-06T00:26:14Z"
     },
@@ -1886,7 +1886,7 @@
   {
     "header": {
       "id": 4375130,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9595414,
       "timestamp": "2022-02-01T02:09:04Z"
     },
@@ -2303,7 +2303,7 @@
   {
     "header": {
       "id": 4375103,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9595365,
       "timestamp": "2022-02-01T02:03:33Z"
     },
@@ -2555,7 +2555,7 @@
   {
     "header": {
       "id": 4308567,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9531256,
       "timestamp": "2022-01-27T02:23:59Z"
     },
@@ -2972,7 +2972,7 @@
   {
     "header": {
       "id": 4308552,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9531241,
       "timestamp": "2022-01-27T02:22:19Z"
     },
@@ -3224,7 +3224,7 @@
   {
     "header": {
       "id": 4308220,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9530985,
       "timestamp": "2022-01-27T01:53:52Z"
     },
@@ -3641,7 +3641,7 @@
   {
     "header": {
       "id": 4283198,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9507463,
       "timestamp": "2022-01-25T05:48:54Z"
     },
@@ -4058,7 +4058,7 @@
   {
     "header": {
       "id": 4283190,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9507444,
       "timestamp": "2022-01-25T05:46:48Z"
     },
@@ -4310,7 +4310,7 @@
   {
     "header": {
       "id": 4280110,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9504134,
       "timestamp": "2022-01-24T23:37:37Z"
     },
@@ -4727,7 +4727,7 @@
   {
     "header": {
       "id": 4280105,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9504121,
       "timestamp": "2022-01-24T23:36:09Z"
     },
@@ -4979,7 +4979,7 @@
   {
     "header": {
       "id": 4271593,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9498625,
       "timestamp": "2022-01-24T13:21:01Z"
     },
@@ -5396,7 +5396,7 @@
   {
     "header": {
       "id": 4271530,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9498607,
       "timestamp": "2022-01-24T13:18:56Z"
     },
@@ -5648,7 +5648,7 @@
   {
     "header": {
       "id": 4250728,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9480008,
       "timestamp": "2022-01-23T02:51:16Z"
     },
@@ -6065,7 +6065,7 @@
   {
     "header": {
       "id": 4250670,
-      "platform_id": "kava-9",
+      "chain_id": "kava-9",
       "block_id": 9479962,
       "timestamp": "2022-01-23T02:46:13Z"
     },
@@ -6317,7 +6317,7 @@
   {
     "header": {
       "id": 3987224,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 9195449,
       "timestamp": "2021-12-31T12:31:56Z"
     },
@@ -6425,7 +6425,7 @@
   {
     "header": {
       "id": 3956427,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 9151722,
       "timestamp": "2021-12-28T01:20:08Z"
     },
@@ -6522,7 +6522,7 @@
   {
     "header": {
       "id": 3136954,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 8147691,
       "timestamp": "2021-10-10T13:53:55Z"
     },
@@ -6634,7 +6634,7 @@
   {
     "header": {
       "id": 3096996,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 8095418,
       "timestamp": "2021-10-06T12:35:15Z"
     },
@@ -6747,7 +6747,7 @@
   {
     "header": {
       "id": 2966949,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7941045,
       "timestamp": "2021-09-24T03:21:01Z"
     },
@@ -6844,7 +6844,7 @@
   {
     "header": {
       "id": 2966940,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7941026,
       "timestamp": "2021-09-24T03:18:53Z"
     },
@@ -6957,7 +6957,7 @@
   {
     "header": {
       "id": 2900301,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7872355,
       "timestamp": "2021-09-18T14:05:08Z"
     },
@@ -7048,7 +7048,7 @@
   {
     "header": {
       "id": 2900285,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7872335,
       "timestamp": "2021-09-18T14:02:43Z"
     },
@@ -7286,7 +7286,7 @@
   {
     "header": {
       "id": 2900276,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7872329,
       "timestamp": "2021-09-18T14:02:01Z"
     },
@@ -7399,7 +7399,7 @@
   {
     "header": {
       "id": 2900241,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7872272,
       "timestamp": "2021-09-18T13:55:25Z"
     },
@@ -7496,7 +7496,7 @@
   {
     "header": {
       "id": 2900222,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7872254,
       "timestamp": "2021-09-18T13:53:16Z"
     },
@@ -7593,7 +7593,7 @@
   {
     "header": {
       "id": 2900214,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7872237,
       "timestamp": "2021-09-18T13:51:17Z"
     },
@@ -7730,7 +7730,7 @@
   {
     "header": {
       "id": 2900211,
-      "platform_id": "kava-8",
+      "chain_id": "kava-8",
       "block_id": 7872228,
       "timestamp": "2021-09-18T13:50:16Z"
     },

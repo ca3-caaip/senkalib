@@ -2,7 +2,7 @@
   {
     "header": {
       "id": 15110353,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2810079,
       "timestamp": "2022-01-15T12:18:55Z"
     },
@@ -141,7 +141,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4375780",
                     "time": "2022-01-15T12:18:48.764575057Z",
                     "last_block_id": {
@@ -1923,7 +1923,7 @@
   {
     "header": {
       "id": 15110352,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2810079,
       "timestamp": "2022-01-15T12:18:55Z"
     },
@@ -2225,7 +2225,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4375780",
                     "time": "2022-01-15T12:18:48.764575057Z",
                     "last_block_id": {
@@ -4007,7 +4007,7 @@
   {
     "header": {
       "id": 15011357,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2801696,
       "timestamp": "2022-01-14T21:20:58Z"
     },
@@ -4239,7 +4239,7 @@
   {
     "header": {
       "id": 15011298,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2801691,
       "timestamp": "2022-01-14T21:20:26Z"
     },
@@ -4444,7 +4444,7 @@
   {
     "header": {
       "id": 15011260,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2801688,
       "timestamp": "2022-01-14T21:20:02Z"
     },
@@ -4737,7 +4737,7 @@
   {
     "header": {
       "id": 15011005,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2801672,
       "timestamp": "2022-01-14T21:18:22Z"
     },
@@ -4876,7 +4876,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4366702",
                     "time": "2022-01-14T21:18:13.061390054Z",
                     "last_block_id": {
@@ -6658,7 +6658,7 @@
   {
     "header": {
       "id": 15011000,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2801671,
       "timestamp": "2022-01-14T21:18:15Z"
     },
@@ -6960,7 +6960,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4366702",
                     "time": "2022-01-14T21:18:13.061390054Z",
                     "last_block_id": {
@@ -8742,7 +8742,7 @@
   {
     "header": {
       "id": 14934792,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2798355,
       "timestamp": "2022-01-14T14:54:16Z"
     },
@@ -8901,7 +8901,7 @@
   {
     "header": {
       "id": 14850884,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2792108,
       "timestamp": "2022-01-14T03:50:31Z"
     },
@@ -9076,7 +9076,7 @@
   {
     "header": {
       "id": 14850702,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2792095,
       "timestamp": "2022-01-14T03:49:11Z"
     },
@@ -9369,7 +9369,7 @@
   {
     "header": {
       "id": 14850655,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2792092,
       "timestamp": "2022-01-14T03:48:52Z"
     },
@@ -9508,7 +9508,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4356121",
                     "time": "2022-01-14T03:48:47.322885158Z",
                     "last_block_id": {
@@ -11290,7 +11290,7 @@
   {
     "header": {
       "id": 14850654,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2792092,
       "timestamp": "2022-01-14T03:48:52Z"
     },
@@ -11429,7 +11429,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4356121",
                     "time": "2022-01-14T03:48:47.322885158Z",
                     "last_block_id": {
@@ -13211,7 +13211,7 @@
   {
     "header": {
       "id": 14850653,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2792092,
       "timestamp": "2022-01-14T03:48:52Z"
     },
@@ -13513,7 +13513,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4356121",
                     "time": "2022-01-14T03:48:47.322885158Z",
                     "last_block_id": {
@@ -15295,7 +15295,7 @@
   {
     "header": {
       "id": 14844863,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791482,
       "timestamp": "2022-01-14T02:43:48Z"
     },
@@ -15456,7 +15456,7 @@
   {
     "header": {
       "id": 14844837,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791479,
       "timestamp": "2022-01-14T02:43:30Z"
     },
@@ -15528,7 +15528,7 @@
   {
     "header": {
       "id": 14844692,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791462,
       "timestamp": "2022-01-14T02:41:42Z"
     },
@@ -15745,7 +15745,7 @@
   {
     "header": {
       "id": 14844654,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791456,
       "timestamp": "2022-01-14T02:41:05Z"
     },
@@ -15906,7 +15906,7 @@
   {
     "header": {
       "id": 14844619,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791453,
       "timestamp": "2022-01-14T02:40:46Z"
     },
@@ -16123,7 +16123,7 @@
   {
     "header": {
       "id": 14844364,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791427,
       "timestamp": "2022-01-14T02:37:58Z"
     },
@@ -16416,7 +16416,7 @@
   {
     "header": {
       "id": 14844190,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791415,
       "timestamp": "2022-01-14T02:36:42Z"
     },
@@ -16555,7 +16555,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4355393",
                     "time": "2022-01-14T02:36:35.576863678Z",
                     "last_block_id": {
@@ -18337,7 +18337,7 @@
   {
     "header": {
       "id": 14844189,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791415,
       "timestamp": "2022-01-14T02:36:42Z"
     },
@@ -18476,7 +18476,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4355393",
                     "time": "2022-01-14T02:36:35.576863678Z",
                     "last_block_id": {
@@ -20258,7 +20258,7 @@
   {
     "header": {
       "id": 14844188,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791415,
       "timestamp": "2022-01-14T02:36:42Z"
     },
@@ -20397,7 +20397,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4355393",
                     "time": "2022-01-14T02:36:35.576863678Z",
                     "last_block_id": {
@@ -22179,7 +22179,7 @@
   {
     "header": {
       "id": 14844187,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2791415,
       "timestamp": "2022-01-14T02:36:42Z"
     },
@@ -22481,7 +22481,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4355393",
                     "time": "2022-01-14T02:36:35.576863678Z",
                     "last_block_id": {
@@ -24263,7 +24263,7 @@
   {
     "header": {
       "id": 14705889,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784460,
       "timestamp": "2022-01-13T13:38:44Z"
     },
@@ -24495,7 +24495,7 @@
   {
     "header": {
       "id": 14705849,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784456,
       "timestamp": "2022-01-13T13:38:19Z"
     },
@@ -24788,7 +24788,7 @@
   {
     "header": {
       "id": 14705835,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784453,
       "timestamp": "2022-01-13T13:38:00Z"
     },
@@ -24927,7 +24927,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347542",
                     "time": "2022-01-13T13:37:56.663684014Z",
                     "last_block_id": {
@@ -26709,7 +26709,7 @@
   {
     "header": {
       "id": 14705834,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784453,
       "timestamp": "2022-01-13T13:38:00Z"
     },
@@ -26848,7 +26848,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347542",
                     "time": "2022-01-13T13:37:56.663684014Z",
                     "last_block_id": {
@@ -28630,7 +28630,7 @@
   {
     "header": {
       "id": 14705833,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784453,
       "timestamp": "2022-01-13T13:38:00Z"
     },
@@ -28932,7 +28932,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347542",
                     "time": "2022-01-13T13:37:56.663684014Z",
                     "last_block_id": {
@@ -30714,7 +30714,7 @@
   {
     "header": {
       "id": 14701910,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784173,
       "timestamp": "2022-01-13T13:07:50Z"
     },
@@ -30852,7 +30852,7 @@
   {
     "header": {
       "id": 14701126,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784068,
       "timestamp": "2022-01-13T12:56:39Z"
     },
@@ -30991,7 +30991,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347115",
                     "time": "2022-01-13T12:55:39.240252499Z",
                     "last_block_id": {
@@ -32773,7 +32773,7 @@
   {
     "header": {
       "id": 14701122,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784067,
       "timestamp": "2022-01-13T12:56:33Z"
     },
@@ -33005,7 +33005,7 @@
   {
     "header": {
       "id": 14701100,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784064,
       "timestamp": "2022-01-13T12:56:14Z"
     },
@@ -33298,7 +33298,7 @@
   {
     "header": {
       "id": 14701068,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784059,
       "timestamp": "2022-01-13T12:55:41Z"
     },
@@ -33437,7 +33437,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347115",
                     "time": "2022-01-13T12:55:39.240252499Z",
                     "last_block_id": {
@@ -35219,7 +35219,7 @@
   {
     "header": {
       "id": 14701067,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784059,
       "timestamp": "2022-01-13T12:55:41Z"
     },
@@ -35358,7 +35358,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347115",
                     "time": "2022-01-13T12:55:39.240252499Z",
                     "last_block_id": {
@@ -37140,7 +37140,7 @@
   {
     "header": {
       "id": 14701066,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784059,
       "timestamp": "2022-01-13T12:55:41Z"
     },
@@ -37442,7 +37442,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347115",
                     "time": "2022-01-13T12:55:39.240252499Z",
                     "last_block_id": {
@@ -39224,7 +39224,7 @@
   {
     "header": {
       "id": 14700812,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784017,
       "timestamp": "2022-01-13T12:51:08Z"
     },
@@ -39456,7 +39456,7 @@
   {
     "header": {
       "id": 14700783,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784011,
       "timestamp": "2022-01-13T12:50:31Z"
     },
@@ -39617,7 +39617,7 @@
   {
     "header": {
       "id": 14700758,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2784007,
       "timestamp": "2022-01-13T12:50:06Z"
     },
@@ -39844,7 +39844,7 @@
   {
     "header": {
       "id": 14700659,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2783995,
       "timestamp": "2022-01-13T12:48:46Z"
     },
@@ -40049,7 +40049,7 @@
   {
     "header": {
       "id": 14700617,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2783991,
       "timestamp": "2022-01-13T12:48:20Z"
     },
@@ -40254,7 +40254,7 @@
   {
     "header": {
       "id": 14700510,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2783980,
       "timestamp": "2022-01-13T12:47:11Z"
     },
@@ -40284,7 +40284,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347025",
                     "time": "2022-01-13T12:46:44.648087759Z",
                     "last_block_id": {
@@ -42066,7 +42066,7 @@
   {
     "header": {
       "id": 14700509,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2783980,
       "timestamp": "2022-01-13T12:47:11Z"
     },
@@ -42096,7 +42096,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347025",
                     "time": "2022-01-13T12:46:44.648087759Z",
                     "last_block_id": {
@@ -43878,7 +43878,7 @@
   {
     "header": {
       "id": 14700508,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2783980,
       "timestamp": "2022-01-13T12:47:11Z"
     },
@@ -44017,7 +44017,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347025",
                     "time": "2022-01-13T12:46:44.648087759Z",
                     "last_block_id": {
@@ -45799,7 +45799,7 @@
   {
     "header": {
       "id": 14700485,
-      "platform_id": "osmosis-1",
+      "chain_id": "osmosis-1",
       "block_id": 2783976,
       "timestamp": "2022-01-13T12:46:46Z"
     },
@@ -46101,7 +46101,7 @@
                       "block": "11",
                       "app": "0"
                     },
-                    "platform_id": "core-1",
+                    "chain_id": "core-1",
                     "height": "4347025",
                     "time": "2022-01-13T12:46:44.648087759Z",
                     "last_block_id": {
