@@ -8,16 +8,12 @@ from senkalib.token_original_id_table import TokenOriginalIdTable
 
 
 class TestTokenOriginalIdTable(unittest.TestCase):
-    TOKEN_ORIGINAL_IDS_URL = "https://raw.githubusercontent.com/ca3-caaip/token_original_id/modify_table_scheme/token_original_id.csv"
-
     def test_get_all_meta_data(self):
         with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
             with patch.object(
                 csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
             ):
-                token_original_id_table = TokenOriginalIdTable(
-                    TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
-                )
+                token_original_id_table = TokenOriginalIdTable("")
                 metadata = token_original_id_table.get_all_meta_data(
                     "osmosis",
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
@@ -37,9 +33,7 @@ class TestTokenOriginalIdTable(unittest.TestCase):
             with patch.object(
                 csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
             ):
-                token_original_id_table = TokenOriginalIdTable(
-                    TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
-                )
+                token_original_id_table = TokenOriginalIdTable("")
                 uti = token_original_id_table.get_uti(
                     "osmosis",
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
@@ -51,9 +45,7 @@ class TestTokenOriginalIdTable(unittest.TestCase):
             with patch.object(
                 csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
             ):
-                token_original_id_table = TokenOriginalIdTable(
-                    TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
-                )
+                token_original_id_table = TokenOriginalIdTable("")
                 symbol = token_original_id_table.get_symbol(
                     "osmosis",
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
@@ -65,9 +57,7 @@ class TestTokenOriginalIdTable(unittest.TestCase):
             with patch.object(
                 csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
             ):
-                token_original_id_table = TokenOriginalIdTable(
-                    TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
-                )
+                token_original_id_table = TokenOriginalIdTable("")
                 description = token_original_id_table.get_description(
                     "osmosis",
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
@@ -81,9 +71,7 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                 "DictReader",
                 new=TestTokenOriginalIdTable.mock_DictReader,
             ):
-                token_original_id_table = TokenOriginalIdTable(
-                    TestTokenOriginalIdTable.TOKEN_ORIGINAL_IDS_URL
-                )
+                token_original_id_table = TokenOriginalIdTable("")
                 symbol = token_original_id_table.get_symbol(
                     "wrong_platform",
                     "ibc/9712DBB13B9631EDFA9BF61B55F1B2D290B2ADB67E3A4EB3A875F3B6081B3B84",
