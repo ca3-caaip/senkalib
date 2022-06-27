@@ -3,18 +3,18 @@ import os
 import re
 from typing import List
 
-from senkalib.chain.transaction_generator import TransactionGenerator
+from senkalib.platform.transaction_generator import TransactionGenerator
 
 
 class SenkaLib:
     TOKEN_OERIGINAK_IDS_URL = "https://raw.githubusercontent.com/ca3-caaip/token_original_id/master/token_original_id.csv"
 
     @classmethod
-    def get_available_chain(cls, blacklist=[]) -> List[TransactionGenerator]:
-        available_chains = []
+    def get_available_platform(cls, blacklist=[]) -> List[TransactionGenerator]:
+        available_platforms = []
         try:
             blacklist.append("__pycache__")
-            path = "%s/chain" % os.path.dirname(__file__)
+            path = "%s/platform" % os.path.dirname(__file__)
             files = os.listdir(path)
             dirs = sorted(
                 [
@@ -26,7 +26,7 @@ class SenkaLib:
 
             for dir in dirs:
                 module = importlib.import_module(
-                    f"senkalib.chain.{dir}.{dir}_transaction_generator", "senkalib"
+                    f"senkalib.platform.{dir}.{dir}_transaction_generator", "senkalib"
                 )
                 transaction_generator = list(f"{dir}_transaction_generator")
                 transaction_generator[0] = transaction_generator[0].upper()
@@ -35,9 +35,9 @@ class SenkaLib:
                     "_(.)", lambda x: x.group(1).upper(), transaction_generator
                 )
                 transaction_generator = getattr(module, transaction_generator)
-                available_chains.append(transaction_generator)
+                available_platforms.append(transaction_generator)
         except Exception as e:
             f"failed to load senkalib transaction generator: {e}"
             raise e
 
-        return available_chains
+        return available_platforms

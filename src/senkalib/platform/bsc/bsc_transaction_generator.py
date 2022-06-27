@@ -4,13 +4,13 @@ from typing import List, Union
 from bscscan import BscScan
 from web3 import Web3
 
-from senkalib.chain.bsc.bsc_transaction import BscTransaction
-from senkalib.chain.transaction import Transaction
-from senkalib.chain.transaction_generator import TransactionGenerator
+from senkalib.platform.bsc.bsc_transaction import BscTransaction
+from senkalib.platform.transaction import Transaction
+from senkalib.platform.transaction_generator import TransactionGenerator
 
 
 class BscTransactionGenerator(TransactionGenerator):
-    chain = "bsc"
+    platform = "bsc"
 
     @classmethod
     def get_transactions(cls, transaction_params: dict) -> List[Transaction]:

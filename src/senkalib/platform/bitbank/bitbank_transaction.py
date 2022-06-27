@@ -1,7 +1,7 @@
 from decimal import Decimal
 from enum import Enum
 
-from senkalib.chain.transaction import Transaction
+from senkalib.platform.transaction import Transaction
 
 
 class TransactionKey(Enum):
@@ -18,7 +18,7 @@ class TransactionKey(Enum):
 
 
 class BitbankTransaction(Transaction):
-    chain = "bitbank"
+    platform = "bitbank"
 
     def __init__(self, transaction: dict):
         super().__init__(transaction[TransactionKey.transaction_id.value])

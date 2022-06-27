@@ -44,7 +44,7 @@ class CosmostationApiClient:
     @classmethod
     def get_transactions_by_address(
         cls,
-        chain: str,
+        platform: str,
         address: str,
         startblock: Union[int, None] = 0,
         endblock: Union[int, None] = sys.maxsize,
@@ -61,7 +61,7 @@ class CosmostationApiClient:
         id_cursor = get_nearest_id(endtime, cache)
 
         while True:
-            result = cls.get_txs(chain, address, id_cursor)
+            result = cls.get_txs(platform, address, id_cursor)
             for tx in result:
                 id_cursor = int(tx["header"]["id"])
                 block_id = int(tx["data"]["height"])
@@ -81,8 +81,8 @@ class CosmostationApiClient:
             sleep(1)
 
     @classmethod
-    def get_txs(cls, chain: str, address: str, id_from: int) -> List[dict]:
-        url = f"https://{get_cosmostation_api_host(chain)}.cosmostation.io/v1/account/new_txs/{address}"
+    def get_txs(cls, platform: str, address: str, id_from: int) -> List[dict]:
+        url = f"https://{get_cosmostation_api_host(platform)}.cosmostation.io/v1/account/new_txs/{address}"
         params = {"from": id_from, "limit": 50}
         headers = {
             "Origin": "https://www.mintscan.io",
@@ -98,11 +98,11 @@ COSMOSTATION_API_HOSTS = {
 }
 
 
-def get_cosmostation_api_host(chain: str):
-    host = COSMOSTATION_API_HOSTS.get(chain, None)
+def get_cosmostation_api_host(platform: str):
+    host = COSMOSTATION_API_HOSTS.get(platform, None)
     if type(host) is not str:
         raise ValueError(
-            f'{chain} is not implemented. check following supported chains: {",".join(list(COSMOSTATION_API_HOSTS.keys()))}'
+            f'{platform} is not implemented. check following supported platforms: {",".join(list(COSMOSTATION_API_HOSTS.keys()))}'
         )
     return host
 

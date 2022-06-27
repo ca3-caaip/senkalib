@@ -3,11 +3,11 @@ from decimal import Decimal
 
 from web3.types import TxReceipt
 
-from senkalib.chain.transaction import Transaction
+from senkalib.platform.transaction import Transaction
 
 
 class BscTransaction(Transaction):
-    chain = "bsc"
+    platform = "bsc"
 
     def __init__(
         self,

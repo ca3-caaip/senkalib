@@ -7,10 +7,10 @@ from unittest.mock import ANY, call, patch
 
 class TestOsmosisTransactionGenerator:
     @patch(
-        "senkalib.chain.cosmostation_api_client.CosmostationApiClient.get_transactions_by_address"
+        "senkalib.platform.cosmostation_api_client.CosmostationApiClient.get_transactions_by_address"
     )
     def test_get_transactions(self, get_transactions_by_address):
-        from src.senkalib.chain.osmosis.osmosis_transaction_generator import (
+        from src.senkalib.platform.osmosis.osmosis_transaction_generator import (
             OsmosisTransactionGenerator,
         )
 
@@ -26,7 +26,7 @@ class TestOsmosisTransactionGenerator:
         OsmosisTransactionGenerator.get_transactions(transaction_params)
         assert get_transactions_by_address.mock_calls == [
             call(
-                chain="osmosis",
+                platform="osmosis",
                 address="address",
                 starttime=1,
                 endtime=2,
@@ -36,9 +36,9 @@ class TestOsmosisTransactionGenerator:
             )
         ]
 
-    @patch("senkalib.chain.cosmostation_api_client.CosmostationApiClient.get_txs")
+    @patch("senkalib.platform.cosmostation_api_client.CosmostationApiClient.get_txs")
     def test_get_transactions_all(self, get_txs):
-        from src.senkalib.chain.osmosis.osmosis_transaction_generator import (
+        from src.senkalib.platform.osmosis.osmosis_transaction_generator import (
             OsmosisTransactionGenerator,
         )
 
@@ -60,7 +60,7 @@ class TestOsmosisTransactionGenerator:
     def mock_get_txs(cls):
         transactions = json.loads(
             Path(
-                "%s/../../testdata/chain/osmosis/test_transactions.json"
+                "%s/../../testdata/platform/osmosis/test_transactions.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )

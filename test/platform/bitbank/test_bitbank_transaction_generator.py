@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
 
-from senkalib.chain.bitbank.bitbank_transaction import BitbankTransaction
-from senkalib.chain.bitbank.bitbank_transaction_generator import (
+from senkalib.platform.bitbank.bitbank_transaction import BitbankTransaction
+from senkalib.platform.bitbank.bitbank_transaction_generator import (
     BitbankTransactionGenerator,
 )
 
@@ -15,7 +15,7 @@ class TestBitbankTransactionGenerator:
     @staticmethod
     def _get_transaction_from_csv() -> list[BitbankTransaction]:
         csvtext = Path(
-            "%s/../../testdata/chain/bitbank/bitbank_exchange.csv"
+            "%s/../../testdata/platform/bitbank/bitbank_exchange.csv"
             % os.path.dirname(__file__)
         ).read_text()
         transaction_params = {"data": csvtext, "type": "csv"}

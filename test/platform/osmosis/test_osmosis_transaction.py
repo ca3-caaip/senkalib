@@ -4,14 +4,15 @@ import unittest
 from decimal import Decimal
 from pathlib import Path
 
-from senkalib.chain.osmosis.osmosis_transaction import OsmosisTransaction
+from senkalib.platform.osmosis.osmosis_transaction import OsmosisTransaction
 
 
 class TestOsmosisTransaction(unittest.TestCase):
     def test_get_timestamp(self):
         swap_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/osmosis/swap.json" % os.path.dirname(__file__)
+                "%s/../../testdata/platform/osmosis/swap.json"
+                % os.path.dirname(__file__)
             ).read_text()
         )
         transaction = OsmosisTransaction(swap_transaction)
@@ -21,7 +22,8 @@ class TestOsmosisTransaction(unittest.TestCase):
     def test_get_transaction_fee(self):
         swap_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/osmosis/swap.json" % os.path.dirname(__file__)
+                "%s/../../testdata/platform/osmosis/swap.json"
+                % os.path.dirname(__file__)
             ).read_text()
         )
         transaction = OsmosisTransaction(swap_transaction)
@@ -31,7 +33,7 @@ class TestOsmosisTransaction(unittest.TestCase):
     def test_get_transaction_mepty_fee_list(self):
         swap_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/osmosis/empty_fee_list.json"
+                "%s/../../testdata/platform/osmosis/empty_fee_list.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )

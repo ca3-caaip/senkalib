@@ -3,7 +3,7 @@ import os
 from decimal import Decimal
 from pathlib import Path
 
-from senkalib.chain.bitbank.bitbank_transaction import BitbankTransaction
+from senkalib.platform.bitbank.bitbank_transaction import BitbankTransaction
 
 
 class TestBitbankTransaction(object):
@@ -35,7 +35,7 @@ class TestBitbankTransaction(object):
     def _get_test_transaction() -> BitbankTransaction:
         data_json = json.loads(
             Path(
-                "%s/../../testdata/chain/bitbank/bitbank_exchange.json"
+                "%s/../../testdata/platform/bitbank/bitbank_exchange.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )

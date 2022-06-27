@@ -3,19 +3,19 @@ import os
 import unittest
 from pathlib import Path
 
-from src.senkalib.chain.bsc.bsc_transaction import BscTransaction
+from src.senkalib.platform.bsc.bsc_transaction import BscTransaction
 
 
 class TestBscTransaction(unittest.TestCase):
     def test_get_timestamp(self):
         header = json.loads(
             Path(
-                "%s/../../testdata/chain/bsc/header.json" % os.path.dirname(__file__)
+                "%s/../../testdata/platform/bsc/header.json" % os.path.dirname(__file__)
             ).read_text()
         )
         receipt = json.loads(
             Path(
-                "%s/../../testdata/chain/bsc/transaction_receipt/approve.json"
+                "%s/../../testdata/platform/bsc/transaction_receipt/approve.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
@@ -32,12 +32,12 @@ class TestBscTransaction(unittest.TestCase):
     def test_get_transaction_fee(self):
         header = json.loads(
             Path(
-                "%s/../../testdata/chain/bsc/header.json" % os.path.dirname(__file__)
+                "%s/../../testdata/platform/bsc/header.json" % os.path.dirname(__file__)
             ).read_text()
         )
         receipt = json.loads(
             Path(
-                "%s/../../testdata/chain/bsc/transaction_receipt/approve.json"
+                "%s/../../testdata/platform/bsc/transaction_receipt/approve.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )

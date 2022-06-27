@@ -9,10 +9,10 @@ from src.senkalib.senka_setting import SenkaSetting
 
 class TestKavaTransactionGenerator:
     @patch(
-        "senkalib.chain.cosmostation_api_client.CosmostationApiClient.get_transactions_by_address"
+        "senkalib.platform.cosmostation_api_client.CosmostationApiClient.get_transactions_by_address"
     )
     def test_get_transactions(self, get_transactions_by_address):
-        from src.senkalib.chain.kava.kava_transaction_generator import (
+        from src.senkalib.platform.kava.kava_transaction_generator import (
             KavaTransactionGenerator,
         )
 
@@ -30,7 +30,7 @@ class TestKavaTransactionGenerator:
         KavaTransactionGenerator.get_transactions(transaction_params)
         assert get_transactions_by_address.mock_calls == [
             call(
-                chain="kava",
+                platform="kava",
                 address="address",
                 starttime=1,
                 endtime=2,
@@ -40,9 +40,9 @@ class TestKavaTransactionGenerator:
             )
         ]
 
-    @patch("senkalib.chain.cosmostation_api_client.CosmostationApiClient.get_txs")
+    @patch("senkalib.platform.cosmostation_api_client.CosmostationApiClient.get_txs")
     def test_get_transactions_all(self, get_txs):
-        from src.senkalib.chain.kava.kava_transaction_generator import (
+        from src.senkalib.platform.kava.kava_transaction_generator import (
             KavaTransactionGenerator,
         )
 
@@ -67,7 +67,7 @@ class TestKavaTransactionGenerator:
         print("mock")
         transactions = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/test_transactions.json"
+                "%s/../../testdata/platform/kava/test_transactions.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )

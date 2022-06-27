@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 from web3.eth import Eth
 
-from src.senkalib.chain.bsc.bsc_transaction_generator import BscTransactionGenerator
+from src.senkalib.platform.bsc.bsc_transaction_generator import BscTransactionGenerator
 from src.senkalib.senka_setting import SenkaSetting
 
 
@@ -66,7 +66,7 @@ class TestBscTransactionGenerator(unittest.TestCase):
     ):
         header = json.loads(
             Path(
-                "%s/../../testdata/chain/bsc/header.json" % os.path.dirname(__file__)
+                "%s/../../testdata/platform/bsc/header.json" % os.path.dirname(__file__)
             ).read_text()
         )
         return [header]
@@ -75,7 +75,7 @@ class TestBscTransactionGenerator(unittest.TestCase):
     def mock_get_transaction_receipt(cls, transaction_hash):
         receipt = json.loads(
             Path(
-                "%s/../../testdata/chain/bsc/transaction_receipt/approve.json"
+                "%s/../../testdata/platform/bsc/transaction_receipt/approve.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
