@@ -4,14 +4,14 @@ import unittest
 from decimal import Decimal
 from pathlib import Path
 
-from senkalib.chain.kava.kava_transaction import KavaTransaction
+from senkalib.platform.kava.kava_transaction import KavaTransaction
 
 
 class TestKavaTransaction(unittest.TestCase):
     def test_get_timestamp(self):
         swap_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/create_atomic_swap.json"
+                "%s/../../testdata/platform/kava/create_atomic_swap.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
@@ -22,7 +22,7 @@ class TestKavaTransaction(unittest.TestCase):
     def test_get_transaction_fee(self):
         swap_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/create_atomic_swap.json"
+                "%s/../../testdata/platform/kava/create_atomic_swap.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
@@ -33,7 +33,7 @@ class TestKavaTransaction(unittest.TestCase):
     def test_get_legacy_transaction_fee(self):
         delegate_legacy_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/delegate_v8(legacy).json"
+                "%s/../../testdata/platform/kava/delegate_v8(legacy).json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
@@ -44,7 +44,7 @@ class TestKavaTransaction(unittest.TestCase):
     def test_get_transaction_mepty_fee_list(self):
         empty_fee_list_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/empty_fee_list.json"
+                "%s/../../testdata/platform/kava/empty_fee_list.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
@@ -55,7 +55,7 @@ class TestKavaTransaction(unittest.TestCase):
     def test_get_fail(self):
         swap_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/create_atomic_swap.json"
+                "%s/../../testdata/platform/kava/create_atomic_swap.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
@@ -65,33 +65,34 @@ class TestKavaTransaction(unittest.TestCase):
 
         failed_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/fail_v8.json" % os.path.dirname(__file__)
+                "%s/../../testdata/platform/kava/fail_v8.json"
+                % os.path.dirname(__file__)
             ).read_text()
         )
         transaction = KavaTransaction(failed_transaction)
         failed = transaction.get_fail()
         self.assertEqual(failed, True)
 
-    def test_get_chain_version(self):
+    def test_get_platform_version(self):
         swap_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/create_atomic_swap.json"
+                "%s/../../testdata/platform/kava/create_atomic_swap.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
         transaction = KavaTransaction(swap_transaction)
-        chain_version = transaction.get_chain_version()
-        self.assertEqual(chain_version, 9)
+        platform_version = transaction.get_platform_version()
+        self.assertEqual(platform_version, 9)
 
         legacy_transaction = json.loads(
             Path(
-                "%s/../../testdata/chain/kava/delegate_v8(legacy).json"
+                "%s/../../testdata/platform/kava/delegate_v8(legacy).json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
         transaction = KavaTransaction(legacy_transaction)
-        chain_version = transaction.get_chain_version()
-        self.assertEqual(chain_version, 8)
+        platform_version = transaction.get_platform_version()
+        self.assertEqual(platform_version, 8)
 
 
 if __name__ == "__main__":

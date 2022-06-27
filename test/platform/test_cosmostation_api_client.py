@@ -5,7 +5,7 @@ from pathlib import Path
 from unittest import TestCase
 from unittest.mock import patch
 
-from src.senkalib.chain.cosmostation_api_client import (
+from src.senkalib.platform.cosmostation_api_client import (
     CosmostationApiClient,
     get_cosmostation_api_host,
     get_nearest_id,
@@ -19,7 +19,7 @@ class TestCosmostationApiClient:
     def test_get_transactions_by_address(self, get_txs):
         dummy_txs = json.loads(
             Path(
-                "%s/../testdata/chain/osmosis/test_transactions.json"
+                "%s/../testdata/platform/osmosis/test_transactions.json"
                 % os.path.dirname(__file__)
             ).read_text()
         )
@@ -90,6 +90,6 @@ class TestCosmostationApiClientInternals(TestCase):
         assert get_cosmostation_api_host("osmosis") == "api-osmosis"
         with self.assertRaisesRegex(
             ValueError,
-            "invalid chain is not implemented. check following supported chains: .+",
+            "invalid platform is not implemented. check following supported platforms: .+",
         ):
-            get_cosmostation_api_host("invalid chain")
+            get_cosmostation_api_host("invalid platform")

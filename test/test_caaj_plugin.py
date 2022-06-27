@@ -4,7 +4,7 @@ from typing import List, Union
 
 from senkalib.caaj_journal import CaajJournal
 from senkalib.caaj_plugin import CaajPlugin
-from senkalib.chain.transaction import Transaction
+from senkalib.platform.transaction import Transaction
 
 
 class SampleCaajPlugin(CaajPlugin):
@@ -18,9 +18,9 @@ class SampleCaajPlugin(CaajPlugin):
     ) -> List[CaajJournal]:
         jounal = CaajJournal(
             "2022-01-01 00:00:00",
-            "chain",
             "platform",
             "application",
+            "service",
             "0x00000000",
             "3232-543543-5435443-543453",
             "deposit",

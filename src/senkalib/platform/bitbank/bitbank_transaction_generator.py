@@ -1,11 +1,11 @@
 import csv
 from enum import Enum, auto
 
-from senkalib.chain.bitbank.bitbank_transaction import (
+from senkalib.platform.bitbank.bitbank_transaction import (
     BitbankTransaction,
     TransactionKey,
 )
-from senkalib.chain.transaction_generator import TransactionGenerator
+from senkalib.platform.transaction_generator import TransactionGenerator
 
 
 class DataType(Enum):
@@ -14,7 +14,7 @@ class DataType(Enum):
 
 
 class BitbankTransactionGenerator(TransactionGenerator):
-    chain = "bitbank"
+    platform = "bitbank"
 
     @classmethod
     def get_transactions(cls, transaction_params: dict) -> list[BitbankTransaction]:

@@ -5,9 +5,9 @@ from decimal import Decimal
 @dataclasses.dataclass
 class CaajJournal:
     executed_at: str
-    chain: str
     platform: str
     application: str
+    service: str
     transaction_id: str
     trade_uuid: str
     type: str

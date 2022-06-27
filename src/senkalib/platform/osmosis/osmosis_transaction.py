@@ -1,13 +1,13 @@
 from datetime import datetime as dt
 from decimal import Decimal, getcontext
 
-from senkalib.chain.transaction import Transaction
+from senkalib.platform.transaction import Transaction
 
 getcontext().prec = 50
 
 
 class OsmosisTransaction(Transaction):
-    chain = "osmosis"
+    platform = "osmosis"
 
     def __init__(self, transaction: dict):
         super().__init__(transaction["data"]["txhash"])

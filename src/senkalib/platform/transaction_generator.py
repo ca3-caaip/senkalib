@@ -1,11 +1,11 @@
 from abc import ABCMeta, abstractmethod
 from typing import List
 
-from senkalib.chain.transaction import Transaction
+from senkalib.platform.transaction import Transaction
 
 
 class TransactionGenerator(metaclass=ABCMeta):
-    chain = None
+    platform = None
 
     @classmethod
     @abstractmethod
