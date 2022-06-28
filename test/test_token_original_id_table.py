@@ -28,7 +28,7 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                     == "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
                 )
 
-    def test_get_uti(self):
+    def test_get_uti_exist(self):
         with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
             with patch.object(
                 csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
@@ -39,6 +39,18 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                     "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
                 )
                 assert uti == "atom/cosmos"
+
+    def test_get_uti_nonexist(self):
+        with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
+            with patch.object(
+                csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
+            ):
+                token_original_id_table = TokenOriginalIdTable("")
+                uti = token_original_id_table.get_uti(
+                    "osmosis",
+                    "gamm/pool/497",
+                )
+                assert uti == "gamm%2Fpool%2F497/osmosis"
 
     def test_get_symbol(self):
         with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):

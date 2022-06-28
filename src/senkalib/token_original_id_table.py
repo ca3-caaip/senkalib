@@ -52,7 +52,7 @@ class TokenOriginalIdTable:
         if meta_data is not None:
             return meta_data["uti"]
         else:
-            return None
+            return f"{urllib.parse.quote(token_original_id, safe='')}/{urllib.parse.quote(platform, safe='')}"
 
     def get_symbol(
         self,
