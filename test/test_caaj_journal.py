@@ -16,11 +16,7 @@ class TestCaajJounal(unittest.TestCase):
         trade_uuid = "bbbbbbddddddd"
         type = "deposit"
         amount = Decimal("0.005147")
-        token_symbol = "juno"
-        token_original_id = (
-            "ibc/46B44899322F3CD854D2D46DEEF881958467CDD4B3B10086DA49296BBED94BED"
-        )
-        token_symbol_uuid = "3a2570c5-15c4-2860-52a8-bff14f27a236"
+        uti = "juno/osmosis"
         caaj_from = "0x111111111111111111111"
         caaj_to = "0x222222222222222222222"
         comment = "hello world"
@@ -34,9 +30,7 @@ class TestCaajJounal(unittest.TestCase):
             trade_uuid,
             type,
             amount,
-            token_symbol,
-            token_original_id,
-            token_symbol_uuid,
+            uti,
             caaj_from,
             caaj_to,
             comment,
@@ -52,12 +46,7 @@ class TestCaajJounal(unittest.TestCase):
         assert cj.trade_uuid == "bbbbbbddddddd"
         assert cj.type == "deposit"
         assert cj.amount == Decimal("0.005147")
-        assert cj.token_symbol == "juno"
-        assert (
-            cj.token_original_id
-            == "ibc/46B44899322F3CD854D2D46DEEF881958467CDD4B3B10086DA49296BBED94BED"
-        )
-        assert cj.token_symbol_uuid == "3a2570c5-15c4-2860-52a8-bff14f27a236"
+        assert cj.uti == "juno/osmosis"
         assert cj.caaj_from == "0x111111111111111111111"
         assert cj.caaj_to == "0x222222222222222222222"
         assert cj.comment == "hello world"

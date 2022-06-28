@@ -12,9 +12,7 @@ class CaajJournal:
     trade_uuid: str
     type: str
     amount: Decimal
-    token_symbol: str
-    token_original_id: str
-    token_symbol_uuid: str
+    uti: str
     caaj_from: str
     caaj_to: str
     comment: str
