@@ -1,4 +1,5 @@
 import csv
+import urllib.parse
 from typing import Union
 
 import requests
@@ -42,16 +43,16 @@ class TokenOriginalIdTable:
             )
         return token_symbol
 
-    def get_symbol_uuid(
+    def get_uti(
         self,
         platform: str,
         token_original_id: str,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
-            return meta_data["symbol_uuid"]
+            return meta_data["uti"]
         else:
-            return None
+            return f"{urllib.parse.quote(token_original_id, safe='')}/{urllib.parse.quote(platform, safe='')}"
 
     def get_symbol(
         self,
@@ -60,7 +61,8 @@ class TokenOriginalIdTable:
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
-            return meta_data["symbol"]
+            symbol = urllib.parse.unquote(meta_data["uti"].split("/")[0])
+            return symbol
         else:
             return None
 
