@@ -29,7 +29,7 @@ class TokenOriginalIdTable:
             object_token = list(
                 filter(
                     lambda x: x["original_id"] == token_original_id
-                    and x.get("primary", ""),
+                    and "/" not in x["uti"],
                     self.token_original_id_table,
                 )
             )
@@ -63,16 +63,5 @@ class TokenOriginalIdTable:
         if meta_data is not None:
             symbol = urllib.parse.unquote(meta_data["uti"].split("/")[0])
             return symbol
-        else:
-            return None
-
-    def get_description(
-        self,
-        platform: str,
-        token_original_id: str,
-    ) -> Union[str, None]:
-        meta_data = self.get_all_meta_data(platform, token_original_id)
-        if meta_data is not None:
-            return meta_data["description"]
         else:
             return None
