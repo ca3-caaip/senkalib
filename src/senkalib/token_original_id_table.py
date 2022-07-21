@@ -37,10 +37,6 @@ class TokenOriginalIdTable:
         token_symbol = None
         if len(object_token) == 1:
             token_symbol = object_token[0]
-        elif len(object_token) > 1:
-            raise ValueError(
-                f"token_original_id table have duplicated definition. token_original_id: {token_original_id}"
-            )
         return token_symbol
 
     def get_uti(
