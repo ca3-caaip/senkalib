@@ -35,7 +35,7 @@ class TokenOriginalIdTable:
             )
 
         token_symbol = None
-        if len(object_token) == 1:
+        if len(object_token) >= 1:
             token_symbol = object_token[0]
         return token_symbol
 

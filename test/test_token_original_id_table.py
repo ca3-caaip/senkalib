@@ -133,6 +133,11 @@ class TestTokenOriginalIdTable(unittest.TestCase):
             },
             {
                 "uti": "osmo",
+                "platform": "kava",
+                "original_id": "osmo",
+            },
+            {
+                "uti": "osmo",
                 "platform": "osmosis",
                 "original_id": "osmo",
             },
