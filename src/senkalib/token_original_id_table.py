@@ -43,12 +43,18 @@ class TokenOriginalIdTable:
         self,
         platform: str,
         token_original_id: str,
+        default_symbol: Union[str, None] = None,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["uti"]
         else:
-            return f"{urllib.parse.quote(token_original_id, safe='')}/{urllib.parse.quote(platform, safe='')}"
+            if default_symbol is not None:
+                return (
+                    f"{default_symbol}/{urllib.parse.quote(token_original_id, safe='')}"
+                )
+            else:
+                return f"{urllib.parse.quote(token_original_id, safe='')}"
 
     def get_symbol(
         self,

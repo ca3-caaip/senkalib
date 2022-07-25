@@ -52,7 +52,7 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                 )
                 assert uti == "atom"
 
-    def test_get_uti_nonexist(self):
+    def test_get_uti_nonexist_no_default_symbol(self):
         with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
             with patch.object(
                 csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
@@ -62,7 +62,20 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                     "osmosis",
                     "gamm/pool/497",
                 )
-                assert uti == "gamm%2Fpool%2F497/osmosis"
+                assert uti == "gamm%2Fpool%2F497"
+
+    def test_get_uti_nonexist_with_default_symbol(self):
+        with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
+            with patch.object(
+                csv, "DictReader", new=TestTokenOriginalIdTable.mock_DictReader
+            ):
+                token_original_id_table = TokenOriginalIdTable("")
+                uti = token_original_id_table.get_uti(
+                    "osmosis",
+                    "ibc/noexist",
+                    "atomm",
+                )
+                assert uti == "atomm/ibc%2Fnoexist"
 
     def test_get_symbol(self):
         with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
