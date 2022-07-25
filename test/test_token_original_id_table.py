@@ -27,6 +27,19 @@ class TestTokenOriginalIdTable(unittest.TestCase):
                     == "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
                 )
 
+                metadata = token_original_id_table.get_all_meta_data(
+                    "osmosis",
+                    "ibc/27394FB092D2ECCD56123C74F36e4C1F926001CEADA9CA97EA622b25F41E5EB2",
+                )
+                if metadata is None:
+                    assert False
+                assert metadata["uti"] == "atom"
+                assert metadata["platform"] == "osmosis"
+                assert (
+                    metadata["original_id"]
+                    == "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2"
+                )
+
     def test_get_uti_exist(self):
         with patch.object(requests, "get", new=TestTokenOriginalIdTable.mock_get):
             with patch.object(

@@ -19,8 +19,8 @@ class TokenOriginalIdTable:
     ) -> Union[dict, None]:
         object_token = list(
             filter(
-                lambda x: x["original_id"] == token_original_id
-                and x["platform"] == platform,
+                lambda x: x["original_id"].lower() == token_original_id.lower()
+                and x["platform"].lower() == platform.lower(),
                 self.token_original_id_table,
             )
         )
@@ -28,7 +28,7 @@ class TokenOriginalIdTable:
         if len(object_token) == 0:
             object_token = list(
                 filter(
-                    lambda x: x["original_id"] == token_original_id
+                    lambda x: x["original_id"].lower() == token_original_id.lower()
                     and "/" not in x["uti"],
                     self.token_original_id_table,
                 )
