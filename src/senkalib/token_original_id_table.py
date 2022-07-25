@@ -19,8 +19,8 @@ class TokenOriginalIdTable:
     ) -> Union[dict, None]:
         object_token = list(
             filter(
-                lambda x: x["original_id"] == token_original_id
-                and x["platform"] == platform,
+                lambda x: x["original_id"].lower() == token_original_id.lower()
+                and x["platform"].lower() == platform.lower(),
                 self.token_original_id_table,
             )
         )
@@ -28,7 +28,7 @@ class TokenOriginalIdTable:
         if len(object_token) == 0:
             object_token = list(
                 filter(
-                    lambda x: x["original_id"] == token_original_id
+                    lambda x: x["original_id"].lower() == token_original_id.lower()
                     and "/" not in x["uti"],
                     self.token_original_id_table,
                 )
@@ -43,12 +43,18 @@ class TokenOriginalIdTable:
         self,
         platform: str,
         token_original_id: str,
+        default_symbol: Union[str, None] = None,
     ) -> Union[str, None]:
         meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["uti"]
         else:
-            return f"{urllib.parse.quote(token_original_id, safe='')}/{urllib.parse.quote(platform, safe='')}"
+            if default_symbol is not None:
+                return (
+                    f"{default_symbol}/{urllib.parse.quote(token_original_id, safe='')}"
+                )
+            else:
+                return f"{urllib.parse.quote(token_original_id, safe='')}"
 
     def get_symbol(
         self,
