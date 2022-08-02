@@ -1,6 +1,8 @@
 import csv
+import json
 import urllib.parse
 from typing import Union
+from xmlrpc.client import boolean
 
 import requests
 
@@ -17,13 +19,24 @@ class TokenOriginalIdTable:
         platform: str,
         token_original_id: str,
     ) -> Union[dict, None]:
-        object_token = list(
-            filter(
-                lambda x: x["original_id"].lower() == token_original_id.lower()
-                and x["platform"].lower() == platform.lower(),
-                self.token_original_id_table,
+        object_token = []
+        try:
+            object_token = list(
+                filter(
+                    lambda x: x["original_id"].lower() == token_original_id.lower()
+                    and x["platform"].lower() == platform.lower(),
+                    self.token_original_id_table,
+                )
             )
-        )
+        except Exception as e:
+            if not e.args:
+                e.args = ("",)
+            e.args = (
+                f"object token filtering is failed"
+                f" token_original_id.lower(): {token_original_id.lower()}. platform: {platform.lower()}. {str(e)}"
+                f"{json.dumps(self.token_original_id_table)}",
+            )
+            raise e
 
         if len(object_token) == 0:
             object_token = list(
@@ -44,7 +57,7 @@ class TokenOriginalIdTable:
         platform: str,
         token_original_id: str,
         default_symbol: Union[str, None] = None,
-    ) -> Union[str, None]:
+    ) -> str:
         meta_data = self.get_all_meta_data(platform, token_original_id)
         if meta_data is not None:
             return meta_data["uti"]
@@ -55,6 +68,17 @@ class TokenOriginalIdTable:
                 )
             else:
                 return f"{urllib.parse.quote(token_original_id, safe='')}"
+
+    def get_only_uti(
+        self,
+        platform: str,
+        token_original_id: str,
+    ) -> Union[str, boolean]:
+        meta_data = self.get_all_meta_data(platform, token_original_id)
+        if meta_data is not None:
+            return meta_data["uti"]
+        else:
+            return False
 
     def get_symbol(
         self,
